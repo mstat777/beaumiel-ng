@@ -1,0 +1,41 @@
+{
+    "title": "Beaumiel",
+    "containers": {
+        "header": {
+            "homeLink": "home",
+            "aboutLink": "about",
+            "contactLink": "contact",
+            "testLink": "test"
+        }
+    },
+    "pages": {
+        "home": {
+            "title": "Did you know?",
+            "text": "Bees have a fascinating method of communication: they dance to convey information about the location of food sources to their fellow bees. This dance allows them to share details about the direction and distance of flowers, making it easier for the entire colony to find food."
+        },
+        "about": {
+            "title": "about",
+            "text": "In order to guarantee organic honey, the Beaumiel teams carry out numerous laboratory analyses."
+        },
+        "contact": {
+            "title": "contact us",
+            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam corrupti molestias itaque facere sit quaerat ex tempora, voluptatem iste debitis magnam eum alias libero expedita hic!",
+            "form": {
+                "title": "leave us a message",
+                "namePlaceholder": "name...",
+                "emailPlaceholder": "email...",
+                "messagePlaceholder": "message...",
+                "buttonText": "send message"
+            }
+        },
+        "test": {
+            "title": "test new features",
+            "text": "here"
+        },
+        "notFound": {
+            "title": "error 404: page not found",
+            "text": "This page is not available. Return to",
+            "link": "home"
+        }
+    }
+}

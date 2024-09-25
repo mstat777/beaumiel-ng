@@ -1,0 +1,28 @@
+<header class="header">
+    <nav class="nav">
+
+        <div class="nav_outer">
+            <a routerLink="/" 
+                (click)="scrollToTop()">
+                <img src="assets/img/logo.jpg" alt="abeille"/>
+                <span>Beaumiel</span>
+            </a>
+        </div>
+        
+        <app-language-selector></app-language-selector>
+
+        <app-burger-btn 
+            [navDisplay] = "navDisplay"
+            (navDisplayState)="receiveNavDisplayState($event)"
+            *ngIf="isMobile"></app-burger-btn>
+
+        <ul (click)="hideNav()" 
+            class="nav_inner"
+            [ngClass]="navDisplay ? 'show_nav' : null">
+            <li><a routerLink="/">accueil</a></li>
+            <li><a routerLink="/fr/about">à propos</a></li>
+            <li><a routerLink="/fr/contact">contact</a></li>
+            <li><a routerLink="/fr/test">test</a></li>
+        </ul>
+    </nav>
+</header>

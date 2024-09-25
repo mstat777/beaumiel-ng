@@ -1,0 +1,41 @@
+{
+    "title": "Beaumiel",
+    "containers": {
+        "header": {
+            "homeLink": "accueil",
+            "aboutLink": "à propos",
+            "contactLink": "contact",
+            "testLink": "test"
+        }
+    },
+    "pages": {
+        "home": {
+            "title": "Saviez-vous ?",
+            "text": "Les abeilles ont une méthode de communication fascinante : elle danse pour transmettre des informations sur la localisation des sources de nourriture à leurs congénères. Cette danse leur permet de partager des détails sur la direction et la distance des fleurs, facilitant ainsi la recherche de nourriture pour toute la colonie."
+        },
+        "about": {
+            "title": "à propos",
+            "text": "Afin de garantir un miel bio, les équipes Beaumiel procèdent à de nombreuses analyses en laboratoire."
+        },
+        "contact": {
+            "title": "nous contacter",
+            "text": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam corrupti molestias itaque facere sit quaerat ex tempora, voluptatem iste debitis magnam eum alias libero expedita hic!",
+            "form": {
+                "title": "laissez-nous un message",
+                "namePlaceholder": "nom...",
+                "emailPlaceholder": "mail...",
+                "messagePlaceholder": "message...",
+                "buttonText": "envoyer"
+            }
+        },
+        "test": {
+            "title": "tester des nouvelles fonctionalités",
+            "text": "ici"
+        },
+        "notFound": {
+            "title": "erreur 404 : page non trouvée",
+            "text": "Cette page n'est pas disponible. Retourner à",
+            "link": "l'acceuil"
+        }
+    }
+}

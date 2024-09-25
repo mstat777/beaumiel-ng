@@ -1,0 +1,8 @@
+<div class="lang_selector">
+    <button
+        *ngFor="let language of languagesLists; index as i"
+    >
+        <img [src]="language.imgUrl" [alt]="language.name" />
+        <span>{{language.shorthand}}</span>
+    </button>
+</div>
