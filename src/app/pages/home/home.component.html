@@ -1,4 +1,6 @@
-<section class="home_section">
-    <h1>saviez-vous ?</h1>
-    <p>Les abeilles ont une méthode de communication fascinante : elle danse pour transmettre des informations sur la localisation des sources de nourriture à leurs congénères. Cette danse leur permet de partager des détails sur la direction et la distance des fleurs, facilitant ainsi la recherche de nourriture pour toute la colonie.</p>
-</section>
+<ng-container *transloco="let t">
+    <section class="home_section">
+        <h1>{{ t(trPath+'.title') }}</h1>
+        <p>{{ t(trPath+'.text') }}</p>
+    </section>
+</ng-container>

@@ -7,14 +7,19 @@ import { TranslocoHttpLoader } from './transloco-loader';
 import { provideTransloco } from '@ngneat/transloco';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideHttpClient(), provideTransloco({
-        config: { 
-          availableLangs: ['fr', 'en'],
-          defaultLang: 'fr',
-          // Remove this option if your application doesn't support changing language in runtime.
-          reRenderOnLangChange: true,
-          prodMode: !isDevMode(),
-        },
-        loader: TranslocoHttpLoader
-      })]
+    providers: [
+        provideZoneChangeDetection({ eventCoalescing: true }), 
+        provideRouter(routes), 
+        provideHttpClient(), 
+        provideTransloco({
+            config: { 
+                availableLangs: ['fr', 'en'],
+                defaultLang: 'fr',
+                // Remove this option if your application doesn't support changing language in runtime.
+                reRenderOnLangChange: true,
+                prodMode: !isDevMode(),
+            },
+            loader: TranslocoHttpLoader
+        })
+    ]
 };

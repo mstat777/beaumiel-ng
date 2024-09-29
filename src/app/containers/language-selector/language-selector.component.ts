@@ -5,7 +5,7 @@ import { TranslocoService } from '@ngneat/transloco';
 @Component({
   selector: 'app-language-selector',
   standalone: true,
-  imports: [ NgFor],
+  imports: [ NgFor ],
   templateUrl: './language-selector.component.html',
   styleUrl: './language-selector.component.scss'
 })
@@ -16,13 +16,13 @@ export class LanguageSelectorComponent {
         Record<'imgUrl'|'code'|'name'|'shorthand', string>
     > = [
         {
-            imgUrl: '/assets/images/flags/french.png',
+            imgUrl: 'assets/img/flags/french.png',
             code: 'fr',
             name: 'French',
             shorthand: 'FRE'
         },
         {
-            imgUrl: '/assets/images/flags/english.png',
+            imgUrl: 'assets/img/flags/english.png',
             code: 'en',
             name: 'English',
             shorthand: 'ENG'

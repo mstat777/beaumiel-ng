@@ -8,6 +8,7 @@ import { faPhone,
 } from '@fortawesome/free-solid-svg-icons';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { ContactService } from './contact.service';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
     selector: 'app-contact',
@@ -15,12 +16,15 @@ import { ContactService } from './contact.service';
     imports: [ 
         FontAwesomeModule,
         NgIf,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        TranslocoModule
     ],
     templateUrl: './contact.component.html',
     styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+    trPath = "pages.contact";
+
     faPhone = faPhone;
     faEnvelope = faEnvelope;
     faMapMarkerAlt = faMapMarkerAlt;

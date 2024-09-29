@@ -4,6 +4,7 @@ import { BurgerBtnComponent } from '../burger-btn/burger-btn.component';
 import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 import { NgClass, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
     selector: 'app-header',
@@ -13,7 +14,8 @@ import { RouterLink } from '@angular/router';
         LanguageSelectorComponent,
         NgIf,
         NgClass,
-        RouterLink
+        RouterLink,
+        TranslocoModule
     ],
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss'
@@ -23,13 +25,15 @@ export class HeaderComponent {
     isMobile!: boolean;
     navDisplay: boolean = false;
 
-    constructor(breakpointObserver: BreakpointObserver) {
+    constructor(
+        breakpointObserver: BreakpointObserver
+    ) {
         breakpointObserver.observe([this.wMobile])
             .subscribe(result => {
                 const breakpoints = result.breakpoints;
                 this.isMobile = breakpoints[this.wMobile] ? true : false;
             });
-      }
+    }
     
     ngOnInit(): void {
         this.hideNav();

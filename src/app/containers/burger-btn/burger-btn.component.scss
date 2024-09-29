@@ -4,8 +4,8 @@ $btn-height: 36px;
 /* ------------ THE BURGER BUTTON ------------- */
 .burger_btn {
     position: absolute;
-    top: calc($header-height - $btn-height) / 2;
-    right: calc($header-height - $btn-height) / 2;
+    top: calc(($header-height - $btn-height) / 2);
+    right: calc(($header-height - $btn-height) / 2);
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,65 +1,66 @@
-<section class="text_section">
-    <h1>nous contacter</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam corrupti molestias itaque facere sit quaerat ex tempora, voluptatem iste debitis magnam eum alias libero expedita hic!</p>
-
-    <div class="contact_details">
-        <div class="detail_ctn">
-            <span>
-                <fa-icon [icon]="faPhone" class="icon">phone</fa-icon>
-            </span>
-            <span>+1 (234)567-890</span>
+<ng-container *transloco="let t">
+    <section class="text_section">
+        <h1>{{ t(trPath+'.title') }}</h1>
+        <p>{{ t(trPath+'.text') }}</p>
+    
+        <div class="contact_details">
+            <div class="detail_ctn">
+                <span>
+                    <fa-icon [icon]="faPhone" class="icon">phone</fa-icon>
+                </span>
+                <span>+1 (234)567-890</span>
+            </div>
+    
+            <div class="detail_ctn">        
+                <span>
+                    <fa-icon [icon]="faEnvelope" class="icon">e-mail</fa-icon>
+                </span>
+                <span>mymail&commat;fotohunet.com</span>
+            </div>
+    
+            <div class="detail_ctn">
+                <span>
+                    <fa-icon [icon]="faMapMarkerAlt" class="icon">address</fa-icon>
+                </span>
+                <address>San Francisco, CA 94107<br/>
+                fa795 Folsom Ave, Suite 600</address>
+            </div>
+    
+            <div class="detail_ctn">
+                <span>
+                    <fa-icon [icon]="faInstagram" class="input_icon">instagram</fa-icon>
+                </span>
+                <span>test.test</span>
+            </div>
         </div>
-
-        <div class="detail_ctn">        
-            <span>
-                <fa-icon [icon]="faEnvelope" class="icon">e-mail</fa-icon>
-            </span>
-            <span>mymail&commat;fotohunet.com</span>
+    
+        <div class="form_ctn">
+            <h2>{{ t(trPath+'.form.title') }}</h2>
+            <p *ngIf="msg" class="ok_msg">{{msg}}</p>
+            <form [formGroup]="checkoutForm" 
+                (ngSubmit)="onSubmit()">
+                  
+                <input type="text" 
+                    id="name" 
+                    formControlName="name"
+                    placeholder="{{ t(trPath+'.form.namePlaceholder') }}"
+                    required/> 
+    
+                <input type="email" 
+                    id="email" 
+                    formControlName="email"
+                    placeholder="{{ t(trPath+'.form.emailPlaceholder') }}"
+                    required/> 
+    
+                <textarea id="message"
+                    formControlName="message"
+                    placeholder="{{ t(trPath+'.form.messagePlaceholder') }}"
+                    rows="8"
+                    maxLength="600"
+                    required></textarea>
+    
+                <button type="submit">{{ t(trPath+'.form.buttonText') }}</button>
+            </form>
         </div>
-
-        <div class="detail_ctn">
-            <span>
-                <fa-icon [icon]="faMapMarkerAlt" class="icon">address</fa-icon>
-            </span>
-            <address>San Francisco, CA 94107<br/>
-            fa795 Folsom Ave, Suite 600</address>
-        </div>
-
-        <div class="detail_ctn">
-            <span>
-                <fa-icon [icon]="faInstagram" class="input_icon">instagram</fa-icon>
-            </span>
-            <span>test.test</span>
-        </div>
-    </div>
-
-    <div class="form_ctn">
-        <h2>Laissez-nous un message :</h2>
-        <p *ngIf="msg" class="ok_msg">{{msg}}</p>
-        <form [formGroup]="checkoutForm" 
-            (ngSubmit)="onSubmit()">
-              
-            <input type="text" 
-                id="name" 
-                formControlName="name"
-                placeholder="nom..."
-                required/> 
-
-            <input type="email" 
-                id="email" 
-                formControlName="email"
-                placeholder="mail..."
-                required/> 
-
-            <textarea id="message"
-                formControlName="message"
-                placeholder="message..."
-                rows="8"
-                maxLength="600"
-                required></textarea>
-
-            <button type="submit">send message</button>
-        </form>
-    </div>
-
-</section>
+    </section>
+</ng-container>

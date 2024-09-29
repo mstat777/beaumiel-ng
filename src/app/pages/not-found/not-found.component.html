@@ -1,4 +1,6 @@
-<section class="not_found_section">
-    <h1>Erreur 404 : Page non trouvée</h1>
-    <p>Cette page n'est pas disponible. Retourner à <a routerLink="/fr/home">l'accueil</a></p>
-</section>
+<ng-container *transloco="let t">
+    <section class="not_found_section">
+        <h1>{{ t(trPath+'.title') }}</h1>
+        <p>{{ t(trPath+'.text') }} <a routerLink="/fr/home">{{ t(trPath+'.link') }}</a></p>
+    </section>
+</ng-container>

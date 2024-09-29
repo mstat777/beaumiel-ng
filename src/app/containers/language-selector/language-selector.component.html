@@ -1,6 +1,7 @@
 <div class="lang_selector">
     <button
         *ngFor="let language of languagesLists; index as i"
+        (click)="changeLanguage(language.code)"
     >
         <img [src]="language.imgUrl" [alt]="language.name" />
         <span>{{language.shorthand}}</span>

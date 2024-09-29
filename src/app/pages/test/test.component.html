@@ -1,7 +1,8 @@
-<section class="text_section">
-    <h1>tester des nouvelles fonctionalités</h1>
-    <article>
-        <p>ici</p>
-    </article>
-    
-</section>
+<ng-container *transloco="let t">
+    <section class="text_section">
+        <h1>{{ t(trPath+'.title') }}</h1>
+        <article>
+            <p>{{ t(trPath+'.text') }}</p>
+        </article>
+    </section>
+</ng-container>
