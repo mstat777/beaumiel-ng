@@ -1,9 +1,16 @@
 <div class="lang_selector">
-    <button
-        *ngFor="let language of languagesLists; index as i"
-        (click)="changeLanguage(language.code)"
-    >
-        <img [src]="language.imgUrl" [alt]="language.name" />
-        <span>{{language.shorthand}}</span>
+    <button (click)="setLangMenu()" class="current_lang_btn">
+        <img [src]="currentLang.imgUrl" [alt]="currentLang.name" />
+        <!--<span>{{currentLang.shorthand}}</span>-->
     </button>
+
+    <div *ngIf="langMenu" class="lang_menu">
+        <button
+            *ngFor="let language of languagesLists; index as i"
+            (click)="changeLanguage(language.code)"
+            class="lang_btn">
+                <img [src]="language.imgUrl" [alt]="language.name" />
+                <!--<span>{{language.shorthand}}</span>-->
+        </button>
+    </div>
 </div>

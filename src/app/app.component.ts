@@ -15,4 +15,5 @@ import { FooterComponent } from './containers/footer/footer.component';
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
+    
 }

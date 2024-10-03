@@ -6,10 +6,10 @@ import { TestComponent } from './pages/test/test.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'fr/home', pathMatch: 'full' },
-    { path: 'fr/home', component: HomeComponent },
-    { path: 'fr/about', component: AboutComponent },
-    { path: 'fr/contact', component: ContactComponent },
-    { path: 'fr/test', component: TestComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: HomeComponent },
+    { path: 'about', component: AboutComponent },
+    { path: 'contact', component: ContactComponent },
+    { path: 'test', component: TestComponent },
     { path: '**', component: NotFoundComponent }
 ];
