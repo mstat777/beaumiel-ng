@@ -3,6 +3,7 @@
     "containers": {
         "header": {
             "homeLink": "accueil",
+            "honeyLink": "miel",
             "aboutLink": "à propos",
             "contactLink": "contact",
             "testLink": "test"
@@ -12,6 +13,9 @@
         "home": {
             "title": "Saviez-vous ?",
             "text": "Les abeilles ont une méthode de communication fascinante : elle danse pour transmettre des informations sur la localisation des sources de nourriture à leurs congénères. Cette danse leur permet de partager des détails sur la direction et la distance des fleurs, facilitant ainsi la recherche de nourriture pour toute la colonie."
+        },
+        "honey": {
+            "title": "miel"
         },
         "about": {
             "title": "à propos",

@@ -3,6 +3,7 @@
     "containers": {
         "header": {
             "homeLink": "home",
+            "honeyLink": "honey",
             "aboutLink": "about",
             "contactLink": "contact",
             "testLink": "test"
@@ -12,6 +13,9 @@
         "home": {
             "title": "Did you know?",
             "text": "Bees have a fascinating method of communication: they dance to convey information about the location of food sources to their fellow bees. This dance allows them to share details about the direction and distance of flowers, making it easier for the entire colony to find food."
+        },
+        "honey": {
+            "title": "honey"
         },
         "about": {
             "title": "about",

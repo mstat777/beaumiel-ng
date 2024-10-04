@@ -30,6 +30,9 @@ body {
             max-width: 600px;
             margin: 0 auto;
             padding: 1rem 0;
+            @media screen and (min-width: $desktop){
+                max-width: 900px;
+            }
             
             > p {
                 text-align: justify;

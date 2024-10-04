@@ -1,0 +1,16 @@
+@import '../../../variables.scss';
+
+.products_section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    width: 100%;
+
+    @media screen and (min-width: $tablet){
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (min-width: $desktop){
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
