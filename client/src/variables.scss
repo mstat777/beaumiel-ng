@@ -1,0 +1,28 @@
+// --------- imported fonts ----------- //
+@import url('https://fonts.googleapis.com/css2?family=Felipa&family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Felipa&display=swap');
+
+// ------ couleurs principales --------
+$primary-color: white;
+$secondary-color: rgb(12,120,84);
+$tertiary-color: rgb(9,145,97);
+$highlight-color: rgb(189,223,85);
+$logo-color: rgb(229, 151, 0);
+$error_color: rgb(189, 12, 12);
+// -------- couleurs grises -----------
+$darkgrey-color: #333; // les textes de saisie (input, textarea, select)
+$grey-color: grey;
+$lightgrey-color: rgb(204, 204, 204); // les bordures des champs et des tableaux
+$verylightgrey-color: #f9f9f9; // distinguer les lignes de tableau
+// ----------- polices --------------
+$main-font: Arial, sans-serif; // principale
+$title-font: 'Oswald', sans-serif; // les titres
+$logo-font: 'Felipa', serif; // logo
+
+// Breakpoints pour les media queries :
+$tablet: 768px;
+$desktop: 1100px;
+
+// Autres :
+$header-height: 50px;
+$footer-height: 25px;

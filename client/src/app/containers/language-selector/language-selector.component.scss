@@ -1,0 +1,61 @@
+@import '../../../variables.scss';
+
+@mixin button() {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: .5rem;
+    border: none;
+    border-radius: 50%;
+    outline: 2px solid $grey-color;
+    background-color: transparent;
+
+    & + & {
+        margin-bottom: 1rem;
+    }
+
+    > img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: fit;
+    }
+
+    > span {
+        display: none;
+        position: absolute;
+        top: 2rem;
+        right: -2rem;
+    }
+}
+
+.lang_selector {
+    position: absolute;
+    top: calc($header-height - 2.5rem) / 2;
+    top: .8rem;
+    left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    width: 2.5rem;
+    z-index: 10;
+
+    @media screen and (min-width: $tablet) {
+        left: unset;
+        right: 2rem;
+    }
+
+    .current_lang_btn {
+        @include button();
+    }
+
+    .lang_menu {
+        position: absolute;
+        //padding: .4rem;
+        border-radius: 4px;
+        background-color: $lightgrey-color;
+
+        .lang_btn {
+            position: relative;
+            @include button();
+        }
+    }
+}

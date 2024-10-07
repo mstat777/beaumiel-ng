@@ -1,0 +1,21 @@
+@import '../../../variables.scss';
+
+.not_found_section {
+    p {
+        line-height: 1.5;
+        
+        a {
+            margin-left: .5rem;
+            padding: .3rem .5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            color: white;
+            background-color: $secondary-color;
+            transition: color .3s;
+    
+            &:hover {
+                color: $highlight-color;
+            }
+        }
+    }
+}

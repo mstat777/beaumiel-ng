@@ -1,0 +1,30 @@
+<ng-container *transloco="let t">
+    <header class="header">
+        <nav class="nav">
+
+            <div class="nav_outer">
+                <a routerLink="/" 
+                    (click)="scrollToTop()">
+                    <img src="assets/img/logo.jpg" alt="abeille"/>
+                    <span>Beaumiel</span>
+                </a>
+            </div>
+            
+            <app-language-selector></app-language-selector>
+
+            <app-burger-btn 
+                [navDisplay] = "navDisplay"
+                (navDisplayState)="receiveNavDisplayState($event)"
+                *ngIf="isMobile"></app-burger-btn>
+
+            <ul (click)="hideNav()" 
+                class="nav_inner"
+                [ngClass]="navDisplay ? 'show_nav' : null">
+                <li><a routerLink="/honey">{{ t('containers.header.honeyLink') }}</a></li>
+                <li><a routerLink="/about">{{ t('containers.header.aboutLink') }}</a></li>
+                <li><a routerLink="/contact">{{ t('containers.header.contactLink') }}</a></li>
+                <li><a routerLink="/test">{{ t('containers.header.testLink') }}</a></li>
+            </ul>
+        </nav>
+    </header>
+</ng-container>
