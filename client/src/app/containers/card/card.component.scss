@@ -2,21 +2,38 @@
 
 .product {
     margin-bottom: 2rem;
-    padding: 1rem 1rem 3rem;
+    padding: 2rem 1rem 4rem;
     border-radius: 4px;
     background-color: #f4f4f4;
+    @media screen and (min-width: $tablet) {
+        margin-bottom: 0;
+    }
 
     >h2 {
         font-size: 2rem;
+        margin: .8rem auto;
+    }
+
+    .subtitle_text {
+        font-size: 1.6rem;
+        margin: .8rem auto;
+        color: $tertiary-color;
     }
 
     >img {
         width: 50%;
-        margin: auto;
+        margin: 2rem auto;
+        border-radius: 6px;
     }
 
     .price_text {
-        margin: 1rem auto;
+        margin: 1rem auto 2rem;
+        font-size: 2.8rem;
+
+        >span {
+            margin-right: 1rem;
+            font-size: 1.4rem;
+        }
     }
 
     >a {
@@ -24,7 +41,6 @@
         padding: .5rem .8rem;
         border-radius: 6px;
         font-size: 2rem;
-        //letter-spacing: .2rem;
         color: white;
         background-color: #b09067;
         transition: all .3s;

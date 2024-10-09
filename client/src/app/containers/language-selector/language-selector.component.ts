@@ -43,12 +43,9 @@ export class LanguageSelectorComponent {
         name: 'French',
         shorthand: 'FRE'
     };
-    //currentLang: string = 'fr';
 
     changeLanguage(languageCode: string): void {
         this.translocoService.setActiveLang(languageCode);
-        /*this.currentLang = this.translocoService.getActiveLang();
-        console.log("this.currentLang = " + this.currentLang);*/
         this.setLangMenu();
         this.getImgURL();
     }
@@ -58,12 +55,9 @@ export class LanguageSelectorComponent {
     }
 
     getImgURL(): void {
-        //console.log("this.currentLang = " + this.translocoService.getActiveLang());
         this.languagesLists.forEach(el => {
-            //console.log("el.code = "+el.code);
             if (this.translocoService.getActiveLang() === el.code){
                 this.currentLang = el;
-                //console.log(this.currentLang);
             }
         });
     }

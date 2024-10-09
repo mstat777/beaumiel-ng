@@ -1,9 +1,9 @@
 <section class="detail_section">
     <div class="main_info_div">
         <div>
-            <h1>tea[index].label_1</h1>
-            <p class="bold_subtitle">tea[index].label_2</p>
-            <p class="italic">Ref: tea[index].ref</p>
+            <h1>{{honey.name}}</h1>
+            <p class="bold_subtitle">{{honey.subtitle}}</p>
+            <p class="italic">Ref: honey[index].ref</p>
         </div>
 
         <div>
@@ -13,16 +13,16 @@
     </div>
 
     <div class="bottom_info_div">
-        <img src="assets/img/products/honey_01_big.jpg" alt="honey_01_big"/>
+        <img src='{{"assets/img/products/honey_0"+honey.id+"_big.jpg"}}' alt='{{"honey_0"+honey.id}}'/>
 
         <select name="object">
             <option 
                 key=""
-                value="">Pochette de t.package
+                value="">Pot de t.package
             </option>
         </select>
 
-        <p class="large_text">9.00 €</p>
+        <p class="large_text">{{honey.price}} €</p>
 
         <button class="add_to_cart_btn">Ajouter au panier</button>
 
@@ -32,10 +32,8 @@
     </div>
 
     <div class="detailed_description_div">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque aliquid non omnis aperiam quia accusamus repellendus quo reprehenderit  dicta enim, rerum dolorem quisquam, sit rem molestiae, debitis blanditiis quidem ratione?</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex repellendus adipisci laudantium exercitationem! 
-        Magni natus facere, assumenda quisquam voluptatum beatae mollitia cumque, perspiciatis modi vel harum aliquid! Velit, distinctio saepe adipisci neque numquam fugit, pariatur corporis suscipit accusamus omnis aliquid!</p>
-        <p class="bold">Profitez d'une remise de 5% sur la pochette de 500g (prix déjà remisé).</p>
-        <p class="bold">Profitez d'une remise de 10% sur le lot de 2 pochettes de 500g (prix déjà remisé).</p>
+        <p>{{honey.description}}</p>
+        <p class="discount">Profitez d'une remise de 5% sur le lot de 3 pots de 250g (prix déjà remisé).</p>
+        <p class="discount">Profitez d'une remise de 10% sur le lot de 2 pots de 500g (prix déjà remisé).</p>
     </div>
 </section>

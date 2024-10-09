@@ -1,8 +1,10 @@
 import { Router } from 'express';
-import { getAll } from '../controller/honey';
+import { getAllInfo,
+        getInfoByLang } from '../controller/honey';
 
 const router = Router();
 
-router.get("/honeys", getAll);
+router.get("/honeys/:lang", getInfoByLang);
+router.get("/honeys", getAllInfo);
 
 export default router;

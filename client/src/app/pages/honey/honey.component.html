@@ -2,13 +2,6 @@
     <h1>{{ t(trPath+'.title') }}</h1>
     
     <section class="products_section">
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
-        <app-card></app-card>
+        <app-card *ngFor="let honey of honeys" [honey]="honey"></app-card>
     </section>
 </ng-container>
