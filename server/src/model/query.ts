@@ -9,7 +9,7 @@ export function find(query: string): Promise<any> {
     });
 }
 
-export function findByValue(query: string, value: any): Promise<any> {
+export function queryWithValue(query: string, value: any): Promise<any> {
     return new Promise((resolve, reject) => {
         pool.query<any>(query, [value], (err, res) => {
             if (err) reject(err)
@@ -18,7 +18,7 @@ export function findByValue(query: string, value: any): Promise<any> {
     });
 }
 
-export function findByArray(query: string, arr: []): Promise<any> {
+export function queryWithArray(query: string, arr: []): Promise<any> {
     return new Promise((resolve, reject) => {
         pool.query<any>(query, arr, (err, res) => {
             if (err) reject(err)

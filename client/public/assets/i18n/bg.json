@@ -6,7 +6,8 @@
             "honeyLink": "пчелен мед",
             "aboutLink": "за нас",
             "contactLink": "контакт",
-            "testLink": "тест"
+            "testLink": "тест",
+            "signinLink": "вход"
         }
     },
     "pages": {
@@ -35,6 +36,16 @@
         "test": {
             "title": "тестване на нови функционалности",
             "text": "тук"
+        },
+        "signIn": {
+            "title": "вход",
+            "form": {
+                "emailPlaceholder": "вашият имейл...",
+                "pswdPlaceholder": "вашата парола...",
+                "buttonText": "влез"
+            },
+            "notHaveAccount": "Все още нямате профил?",
+            "createAccount": "създайте профил сега"
         },
         "notFound": {
             "title": "грешка 404: страницата не е намерена",

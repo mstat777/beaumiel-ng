@@ -10,4 +10,8 @@ import { TranslocoModule } from '@ngneat/transloco';
 })
 export class HomeComponent {
     trPath = "pages.home";
+
+    ngOnInit() {
+        window.scrollTo(0, 0);
+    }
 }

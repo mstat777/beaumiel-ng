@@ -19,18 +19,13 @@ export class DetailComponent {
     honey!: Honey;
     id!: number;
     
-    constructor(private route: ActivatedRoute) {
-        this.honeys = [];
-        //const id: string = this.route.snapshot.params['id'];
-    }
-
-    
+    constructor(private route: ActivatedRoute) {}
 
     ngOnInit() {
         this.honeys = this.route.snapshot.data["honeys"];
         //console.log(this.honeys);
         this.id = Number(this.route.snapshot.params['id']);
         console.log(this.id);
-        this.honey = this.honeys[this.id];
+        this.honey = this.honeys[this.id-1];
     }
 }

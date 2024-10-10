@@ -21,6 +21,7 @@ export class HoneyComponent {
     }
 
     ngOnInit() {
+        window.scrollTo(0, 0);
         this.honeys = this.route.snapshot.data["honeys"];
     }
 }

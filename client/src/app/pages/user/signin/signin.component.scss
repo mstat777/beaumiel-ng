@@ -1,0 +1,97 @@
+@import '../../../../variables.scss';
+
+.signin {
+    width: 90%;
+    max-width: 400px;
+    margin: 2rem auto;
+
+    >h1 {
+        font-size: 2.4rem;
+        margin: 1.5rem;
+    }
+
+    .ok_msg,
+    .err_msg {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        font-size: 1.4rem;
+        text-align: left;
+        color: $secondary-color;
+    }
+    .err_msg {
+        color: $error-color;
+    }
+
+    .sign_form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 1rem 0;
+        padding: 1rem;
+        background-color: $secondary-color;
+
+        >* {
+            & + * {
+                margin-top: 1rem;
+            }
+        }
+
+        >label {
+            position: relative;
+            margin: .5rem;
+
+            .input_icon {
+                position: absolute;
+                left: 1.3rem;
+                top: .8rem;
+                font-size: 1.6rem;
+                color: $tertiary-color;
+            }
+            >input {
+                width: 100%;
+                padding: .6rem 4rem;
+                border: 1px solid $tertiary-color;
+            }
+
+            /* password eye button */
+            .pass_icon_ctn {
+                position: absolute;
+                right: .8rem;
+                top: 0;
+                height: 3.2rem;
+                width: 3.2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                background-color: transparent;
+
+                .pass_icon {
+                    font-size: 1.6rem;
+                    color: $tertiary-color;
+                }
+            }
+        }
+
+        button {
+            display: inline-block;
+            margin: 0 auto;
+            padding: .7rem 1rem;
+            border: 1px solid $secondary-color;
+            border-radius: 4px;
+            font-weight: 600;
+            color: $primary-color;
+            background-color: $tertiary-color;
+        }
+    }
+
+    .signup_txt {
+        text-align: left;
+        >a {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+}

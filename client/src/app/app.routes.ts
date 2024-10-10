@@ -7,6 +7,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HoneyComponent } from './pages/honey/honey.component';
 import { DetailComponent } from './pages/detail/detail.component';
 import { DataResolverService } from './resolvers/data-resolver/data-resolver.service';
+import { SigninComponent } from './pages/user/signin/signin.component';
+import { authGuard } from './auth/auth.guard';
+import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 
 export const routes: Routes = [
     { path: '', 
@@ -30,6 +33,14 @@ export const routes: Routes = [
         component: ContactComponent },
     { path: 'test', 
         component: TestComponent },
+
+    { path: 'user/signin', 
+        component: SigninComponent },   
+
+    { path: 'admin', 
+        component: AdminDashboardComponent,
+        canActivate: [authGuard] },
+
     { path: '**', 
         component: NotFoundComponent }
 ];

@@ -6,7 +6,8 @@
             "honeyLink": "honey",
             "aboutLink": "about",
             "contactLink": "contact",
-            "testLink": "test"
+            "testLink": "test",
+            "signinLink": "sign in"
         }
     },
     "pages": {
@@ -35,6 +36,16 @@
         "test": {
             "title": "test new features",
             "text": "here"
+        },
+        "signIn": {
+            "title": "sign in",
+            "form": {
+                "emailPlaceholder": "your email...",
+                "pswdPlaceholder": "your password...",
+                "buttonText": "sign in"
+            },
+            "notHaveAccount": "Don't have an account yet?",
+            "createAccount": "Create it now"
         },
         "notFound": {
             "title": "error 404: page not found",

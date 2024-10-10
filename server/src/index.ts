@@ -2,8 +2,8 @@ import express, { Express, Request, Response } from "express";
 import cors from 'cors';
 import router from './router/index.routes';
 import dotenv from "dotenv";
-
 dotenv.config();
+
 const app: Express = express();
 const PORT = process.env.LOCAL_PORT;
 

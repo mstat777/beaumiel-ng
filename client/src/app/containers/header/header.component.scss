@@ -55,7 +55,7 @@
 
         &_inner {
             position: absolute;
-            top: -22rem; // hidden by default
+            top: -28rem; // hidden by default
             left: 0;
             right: 0;
             display: flex;
@@ -109,7 +109,7 @@
         }
 
         .show_nav {
-            transform: translateY(22rem) translateY($header-height);
+            transform: translateY(28rem) translateY($header-height);
         }
     }
 }

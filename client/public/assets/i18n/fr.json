@@ -6,7 +6,8 @@
             "honeyLink": "miel",
             "aboutLink": "à propos",
             "contactLink": "contact",
-            "testLink": "test"
+            "testLink": "test",
+            "signinLink": "se connecter"
         }
     },
     "pages": {
@@ -35,6 +36,16 @@
         "test": {
             "title": "tester des nouvelles fonctionalités",
             "text": "ici"
+        },
+        "signIn": {
+            "title": "se connecter",
+            "form": {
+                "emailPlaceholder": "votre mail...",
+                "pswdPlaceholder": "votre mot de passe...",
+                "buttonText": "se connecter"
+            },
+            "notHaveAccount": "Vous n'avez pas encore de compte ?",
+            "createAccount": "En créer un"
         },
         "notFound": {
             "title": "erreur 404 : page non trouvée",
