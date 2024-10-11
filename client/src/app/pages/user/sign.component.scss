@@ -1,6 +1,6 @@
-@import '../../../../variables.scss';
+@import '../../../variables.scss';
 
-.signin {
+.sign {
     width: 90%;
     max-width: 400px;
     margin: 2rem auto;
@@ -87,11 +87,12 @@
         }
     }
 
-    .signup_txt {
+    .redirect_txt {
         text-align: left;
         >a {
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
+            color: $tertiary-color;
         }
     }
 }

@@ -10,6 +10,7 @@ import { DataResolverService } from './resolvers/data-resolver/data-resolver.ser
 import { SigninComponent } from './pages/user/signin/signin.component';
 import { authGuard } from './auth/auth.guard';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
+import { SignupComponent } from './pages/user/signup/signup.component';
 
 export const routes: Routes = [
     { path: '', 
@@ -35,7 +36,9 @@ export const routes: Routes = [
         component: TestComponent },
 
     { path: 'user/signin', 
-        component: SigninComponent },   
+        component: SigninComponent }, 
+    { path: 'user/signup', 
+        component: SignupComponent },   
 
     { path: 'admin', 
         component: AdminDashboardComponent,

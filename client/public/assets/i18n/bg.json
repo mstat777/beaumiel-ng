@@ -47,6 +47,17 @@
             "notHaveAccount": "Все още нямате профил?",
             "createAccount": "създайте профил сега"
         },
+        "signUp": {
+            "title": "регистрация",
+            "form": {
+                "namePlaceholder": "вашите имена...",
+                "emailPlaceholder": "вашият имейл...",
+                "pswdPlaceholder": "вашата парола...",
+                "buttonText": "регистрирай"
+            },
+            "haveAccount": "вече имате профил?",
+            "signinHere": "влезте тук"
+        },
         "notFound": {
             "title": "грешка 404: страницата не е намерена",
             "text": "Тази страница не е налична. Върнете се на ",

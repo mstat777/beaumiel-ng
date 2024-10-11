@@ -1,0 +1,50 @@
+<ng-container *transloco="let t">
+    <section class="sign">
+        <p *ngIf="logMsg && !email && !password" class="ok_msg">{{logMsg}}</p> 
+        <p *ngIf="errMsg" class="err_msg">{{errMsg}}</p>
+        
+        <h1>{{ t(trPath+'.title') }}</h1>
+    
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="sign_form">
+
+            <label> 
+                <fa-icon [icon]="faUser" class="input_icon"></fa-icon>
+                <input type="text" 
+                        name="name" 
+                        placeholder="{{ t(trPath+'.form.namePlaceholder') }}"
+                        formControlName="name"
+                        required/>
+            </label>
+    
+            <label> 
+                <fa-icon [icon]="faEnvelope" class="input_icon"></fa-icon>
+                <input type="email" 
+                        name="email" 
+                        placeholder="{{ t(trPath+'.form.emailPlaceholder') }}"
+                        formControlName="email"
+                        required/>
+            </label>
+    
+            <label> 
+                <fa-icon [icon]="faLock" class="input_icon"></fa-icon>
+                <input type={{passInputType}}
+                        name="password" 
+                        placeholder="{{ t(trPath+'.form.pswdPlaceholder') }}"
+                        formControlName="password"
+                        required/>
+    
+                <button type="button"
+                        class="pass_icon_ctn" 
+                        (click)="changePassIcon()">
+                    <fa-icon [icon]="passIcon" class="pass_icon"></fa-icon>
+                </button>    
+    
+            </label>
+            
+            <button type="submit">{{ t(trPath+'.form.buttonText') }}</button> 
+        </form>
+    
+        <p class="redirect_txt">{{ t(trPath+'.haveAccount') }} <a routerLink="/user/signin">{{ t(trPath+'.signinHere') }}</a></p>
+    
+    </section>
+    </ng-container>

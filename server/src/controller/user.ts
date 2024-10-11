@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { queryWithValue, queryWithArray } from "../model/query";
-import { compare } from "bcrypt";
+import { compare, hash } from "bcrypt";
 import jsonwebtoken from "jsonwebtoken";
 import dotenv from 'dotenv'; 
 dotenv.config();
@@ -29,26 +29,30 @@ export const checkToken = async (req: Request, res: Response): Promise<any> => {
 // log an user (if exists) and create a token
 export const userSignIn = async (req: Request, res: Response): Promise<any> => {
     try {
+        //console.log("userSignIn");
         let msg: string = "";
         const query = "SELECT id, email, password, role FROM users WHERE email = ?";
-        console.log(req.body);
-        console.log(req.body.email);
+        //console.log(req.body);
+        //console.log(req.body.email);
         const [user] = await queryWithValue(query, req.body.email);
-        if (user.length) {
-            const same = await compare(req.body.password, user[0].password);
+        //console.log(user.password);
+        if (user) {
+            const same = await compare(req.body.password, user.password);
 
             if (same) {
-                const TOKEN = sign({email: user[0].email, role: user[0].role}, SK as string);
+                //console.log("mdp correct");
+                const TOKEN = sign({email: user.email, role: user.role}, SK as string);
                 res.status(200).json({ 
                     TOKEN, 
-                    email: user[0].email, 
-                    userID: user[0].id, 
-                    role: user[0].role });
+                    email: user.email, 
+                    userID: user.id, 
+                    role: user.role });
             } else {
                 msg = "Mot de passe erroné";
+                //console.log(msg);
                 return res.status(409).json({ msg });
             }
-        } else if (!user.length){
+        } else if (!user){
             msg = "Mauvais identifiant";
             return res.status(409).json({ msg });
         }
@@ -62,14 +66,31 @@ export const createUserAccount =  async (req: Request, res: Response): Promise<a
     try {
         let msg: string = "";
         const queryCheckUser = "SELECT email FROM users WHERE email = ?";
+        //console.log(queryCheckUser);
+        const dataArray = [...Object.values(req.body)];
+        const hashedPassword = await hash(req.body.password, 10);
+        dataArray.pop();
+        dataArray.push(hashedPassword);
+        //console.log([...dataArray]);
+        /*await queryWithValue(queryCheckUser, req.body.email).then((result) => {
+            console.log(result);
+            user = result; 
+            console.log("it's oke");
+            console.log(user.length);
+        })
+        .catch((err) => {
+            console.log("ERROR with the query!");
+        });*/
+
         const [user] = await queryWithValue(queryCheckUser, req.body.email);
 
-        if (user.length) {
+        if (user) {
             msg = "Un utilisateur avec cette adresse mail existe déjà !";
             res.status(409).json({ msg });
-        } else if (!user.length) {
+        } else if (!user) {
+            console.log("user doesn't existe");
             const queryCreateUser = "INSERT INTO users (name, email, password, role, date_created) VALUES (?, ?, ?, 'client', CURRENT_TIMESTAMP())";
-            await queryWithValue(queryCreateUser, [...Object.values(req.body)]);
+            await queryWithArray(queryCreateUser, dataArray as []);
             msg = "Utilisateur créé";
             res.status(201).json({ msg });
         }

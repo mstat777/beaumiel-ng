@@ -1,41 +1,43 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, Router, RouterModule } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../../auth/auth.service';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { TranslocoModule } from '@ngneat/transloco';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faUser, faLock, faEye, faEyeSlash, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
-    selector: 'app-signin',
+    selector: 'app-signup',
     standalone: true,
-    imports: [ 
-        RouterLink, 
-        RouterModule,
-        NgIf, 
+    imports: [
+        RouterLink,
         ReactiveFormsModule,
         FontAwesomeModule, 
-        TranslocoModule
+        TranslocoModule,
+        NgIf
     ],
-    templateUrl: './signin.component.html',
+    templateUrl: './signup.component.html',
     styleUrl: '../sign.component.scss'
 })
-export class SigninComponent {
-    authService = inject(AuthService);
+export class SignupComponent {
     router = inject(Router);
-    trPath = "pages.signIn";
+    authService = inject(AuthService);
+    trPath = "pages.signUp";
 
     logMsg: string = '';
     errMsg: string = '';
+    name: string = '';
     email: string = '';
     password: string = '';
     faUser = faUser;
+    faEnvelope = faEnvelope;
     faLock = faLock;
     passIcon = faEyeSlash;
     passInputType: string = "password";
 
-    protected signinForm: FormGroup = new FormGroup({
+    protected signupForm: FormGroup = new FormGroup({
+        name: new FormControl('', [Validators.required]),
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [Validators.required])
     }); 
@@ -56,15 +58,11 @@ export class SigninComponent {
     }
 
     onSubmit(): void {
-        if (this.signinForm.valid){
-            console.log(this.signinForm.value);
-            this.authService.signin(this.signinForm.value).subscribe((data: any) => {
-                    if(this.authService.isLoggedIn()){
-                        this.router.navigate(['/admin']);
-                    }
-                    console.log(data);
+        if (this.signupForm.valid){
+            this.authService.signup(this.signupForm.value).subscribe((data: any) => {
+                    this.router.navigate(['/user/signin']);
                 }, err => {
-                    this.errMsg = "Erreur. Le message n'a pas été envoyé."
+                    this.errMsg = `Erreur : ${err}`;
                     console.log({ err });
                 }
             );

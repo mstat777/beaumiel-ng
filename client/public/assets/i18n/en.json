@@ -47,6 +47,17 @@
             "notHaveAccount": "Don't have an account yet?",
             "createAccount": "Create it now"
         },
+        "signUp": {
+            "title": "create an account",
+            "form": {
+                "namePlaceholder": "your names...",
+                "emailPlaceholder": "your email...",
+                "pswdPlaceholder": "your password...",
+                "buttonText": "create"
+            },
+            "haveAccount": "I already have an account.",
+            "signinHere": "sign in here"
+        },
         "notFound": {
             "title": "error 404: page not found",
             "text": "This page is not available. Return to",
