@@ -23,14 +23,14 @@ import { NgIf } from '@angular/common';
 export class AppComponent {
     isLoading!: boolean;
 
-    constructor(private _router: Router) {}
+    constructor(private router: Router) {}
 
     ngOnInit() {
         this.routerEvents();
     }
 
     routerEvents() {
-        this._router.events.subscribe((event: RouterEvent | any) => {
+        this.router.events.subscribe((event: RouterEvent | any) => {
             switch (true) {
                 case event instanceof NavigationStart: {
                     this.isLoading = true;

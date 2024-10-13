@@ -17,17 +17,23 @@ export const routes: Routes = [
         redirectTo: 'home', 
         pathMatch: 'full' },
     { path: 'home', 
-        component: HomeComponent },
+        component: HomeComponent},
+        /*runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+        resolve: {
+            honeys: DataResolverService
+        }},*/
     { path: 'honey', 
-        component: HoneyComponent,
+        component: HoneyComponent},
+        /*runGuardsAndResolvers: 'paramsOrQueryParamsChange',
         resolve: {
             honeys: DataResolverService
-        }},
-    { path: 'honey/detail/:id', 
-        component: DetailComponent,
+        }},*/
+    { path: 'detail/:id', 
+        component: DetailComponent},
+        /*runGuardsAndResolvers: 'paramsOrQueryParamsChange',
         resolve: {
             honeys: DataResolverService
-        }},
+        }},*/
     { path: 'about', 
         component: AboutComponent },
     { path: 'contact', 

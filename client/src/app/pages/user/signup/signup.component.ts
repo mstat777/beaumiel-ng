@@ -59,13 +59,13 @@ export class SignupComponent {
 
     onSubmit(): void {
         if (this.signupForm.valid){
-            this.authService.signup(this.signupForm.value).subscribe((data: any) => {
-                    this.router.navigate(['/user/signin']);
-                }, err => {
+            this.authService.signup(this.signupForm.value).subscribe({
+                next: () => this.router.navigate(['/user/signin']), 
+                error: err => {
                     this.errMsg = `Erreur : ${err}`;
                     console.log({ err });
                 }
-            );
+            });
         }
     }
 }

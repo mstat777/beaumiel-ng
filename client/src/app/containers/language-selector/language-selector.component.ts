@@ -50,7 +50,7 @@ export class LanguageSelectorComponent {
         this.getImgURL();
     }
 
-    setLangMenu(): void{
+    setLangMenu(): void {
         this.langMenu = !this.langMenu;
     }
 

@@ -1,31 +1,43 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar, faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { Honey } from '../../models/honey';
+import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
+import { HoneyService } from '../honey/honey.service';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-detail',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [TranslocoModule, FontAwesomeModule, NgIf],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss'
 })
 export class DetailComponent {
+    trPath= "pages.detail";
     faStar = faStar;
     faHeart = faHeart;
-    honeys!: Honey[];
+    faCartShopping = faCartShopping;
+    //honeys!: Honey[];
     honey!: Honey;
     id!: number;
+    langSubscription!: Subscription;
     
-    constructor(private route: ActivatedRoute) {}
+    constructor(
+        private honeyService: HoneyService,
+        private translocoService: TranslocoService,
+        private route: ActivatedRoute
+    ) {}
 
     ngOnInit() {
-        this.honeys = this.route.snapshot.data["honeys"];
-        //console.log(this.honeys);
+        window.scrollTo(0, 0);
         this.id = Number(this.route.snapshot.params['id']);
-        console.log(this.id);
-        this.honey = this.honeys[this.id-1];
+        this.honeyService.getApiData().subscribe(honeys => this.honey = honeys[this.id-1]);
+        this.langSubscription = this.translocoService.events$.subscribe(
+            () => this.honeyService.getApiData().subscribe(honeys => this.honey = honeys[this.id-1])
+        );
     }
 }

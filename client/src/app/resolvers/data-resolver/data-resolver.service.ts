@@ -9,17 +9,26 @@ import { TranslocoService } from '@ngneat/transloco';
 })
 export class DataResolverService implements Resolve<any> {
     baseURL = import.meta.env.NG_APP_BASE_URL;
-    activeLang: string = '';
+    //activeLang: string = '';
 
     constructor(
         private http: HttpClient,
         private translocoService: TranslocoService
-    ) {}
+    ) {
+        
+    }
+/*
+    this.translocoService.langChanges$.subscribe({
+        next: lang => {
+            console.log("language changed: "+lang);
+            this.getHoneyList();
+        }
+    });*/
 
+    //this.activeLang = this.translocoService.getActiveLang();
     getHoneyList() {
-        this.activeLang = this.translocoService.getActiveLang();
-        let URL = `${this.baseURL}/honeys/${this.activeLang}`;
-        console.log(URL);
+        const lang = this.translocoService.getActiveLang();
+        let URL = `${this.baseURL}/honeys/${lang}`;
         return this.http.get<Honey[]>(URL);
     }
 

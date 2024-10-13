@@ -1,14 +1,14 @@
-<section class="detail_section">
+<ng-container *transloco="let t">
+<section class="detail_section" *ngIf="honey">
     <div class="main_info_div">
         <div>
             <h1>{{honey.name}}</h1>
             <p class="bold_subtitle">{{honey.subtitle}}</p>
-            <p class="italic">Ref: honey[index].ref</p>
         </div>
 
         <div>
             <fa-icon [icon]="faStar"></fa-icon>
-            <a href="#" class="green">Voir les 56 avis clients</a>
+            <a href="#" class="green">{{ t(trPath+'.reviews', { reviewsNumber: 454 }) }}</a>
         </div>
     </div>
 
@@ -18,22 +18,23 @@
         <select name="object">
             <option 
                 key=""
-                value="">Pot de t.package
+                value="">{{ t(trPath+'.package.S', { size: 23 }) }}
             </option>
         </select>
 
         <p class="large_text">{{honey.price}} €</p>
 
-        <button class="add_to_cart_btn">Ajouter au panier</button>
+        <button class="add_to_cart_btn"><fa-icon [icon]="faCartShopping"></fa-icon>{{ t(trPath+'.addToCart') }}</button>
 
-        <a href="#" class="green">
-            <p><fa-icon [icon]="faHeart"></fa-icon>Ajouter à ma liste d'envie</p>
-        </a>
+        <button class="add_to_wishlist_btn">
+            <p><fa-icon [icon]="faHeart"></fa-icon>{{ t(trPath+'.addToWishList') }}</p>
+        </button>
     </div>
 
     <div class="detailed_description_div">
         <p>{{honey.description}}</p>
-        <p class="discount">Profitez d'une remise de 5% sur le lot de 3 pots de 250g (prix déjà remisé).</p>
-        <p class="discount">Profitez d'une remise de 10% sur le lot de 2 pots de 500g (prix déjà remisé).</p>
+        <p class="discount">{{ t(trPath+'.smallDiscount') }}</p>
+        <p class="discount">{{ t(trPath+'.bigDiscount') }}</p>
     </div>
 </section>
+</ng-container>

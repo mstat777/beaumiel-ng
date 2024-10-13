@@ -1,27 +1,37 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
 import { CardComponent } from '../../containers/card/card.component';
 import { Honey } from '../../models/honey';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
+import { HoneyService } from './honey.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-honey',
   standalone: true,
-  imports: [ TranslocoModule, CardComponent, NgFor ],
+  imports: [ TranslocoModule, CardComponent, NgFor, NgIf ],
   templateUrl: './honey.component.html',
   styleUrl: './honey.component.scss'
 })
 export class HoneyComponent {
     trPath = "pages.honey";
     honeys!: Honey[];
+    langSubscription!: Subscription;
 
-    constructor(private route: ActivatedRoute) {
-        this.honeys = [];
-    }
+    constructor(
+        private honeyService: HoneyService,
+        private translocoService: TranslocoService
+    ) {}
 
     ngOnInit() {
         window.scrollTo(0, 0);
-        this.honeys = this.route.snapshot.data["honeys"];
+        this.honeyService.getApiData().subscribe(honeys => this.honeys = honeys);
+        this.langSubscription = this.translocoService.events$.subscribe(
+            () => this.honeyService.getApiData().subscribe(honeys => this.honeys = honeys)
+        );
+    }
+
+    ngOnDestroy() {
+        this.langSubscription.unsubscribe();
     }
 }

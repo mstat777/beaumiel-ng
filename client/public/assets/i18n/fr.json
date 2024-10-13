@@ -18,6 +18,18 @@
         "honey": {
             "title": "miel"
         },
+        "detail": {
+            "reviews": "Voir les {{reviewsNumber}} avis clients",
+            "package": {
+                "S": "Pot de {{size}}g",
+                "M": "Pot de {{size}}g",
+                "L": "Pot de {{size}}g"
+            },
+            "addToCart": "ajouter au panier",
+            "addToWishList": "ajouter à ma liste d'envie",
+            "smallDiscount": "Profitez d'une remise de 5% sur le lot de 3 pots de 250g (prix déjà remisé).",
+            "bigDiscount": "Profitez d'une remise de 10% sur le lot de 2 pots de 500g (prix déjà remisé)."
+        },
         "about": {
             "title": "à propos",
             "text": "Afin de garantir un miel bio, les équipes Beaumiel procèdent à de nombreuses analyses en laboratoire."

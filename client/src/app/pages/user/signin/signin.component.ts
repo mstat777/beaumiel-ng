@@ -57,17 +57,17 @@ export class SigninComponent {
 
     onSubmit(): void {
         if (this.signinForm.valid){
-            console.log(this.signinForm.value);
-            this.authService.signin(this.signinForm.value).subscribe((data: any) => {
+            this.authService.signin(this.signinForm.value).subscribe({
+                next: () => {
                     if(this.authService.isLoggedIn()){
                         this.router.navigate(['/admin']);
                     }
-                    console.log(data);
-                }, err => {
-                    this.errMsg = "Erreur. Le message n'a pas été envoyé."
+                }, 
+                error: err => {
+                    this.errMsg = `Erreur: ${err.msg}`;
                     console.log({ err });
                 }
-            );
+            });
         }
     }
 }

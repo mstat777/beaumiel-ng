@@ -15,9 +15,7 @@ const pool = mysql.createPool(access);
 
 pool.getConnection((err, connection) => {
     if (err) {
-        console.log(err);
-        /*console.log('error connecting. retrying in 1 sec');
-        setTimeout(attemptConnection, 1000);*/
+        console.log('error connecting: '+err);
     } else {
         console.log("connected to the Beaumiel DB.");
     }

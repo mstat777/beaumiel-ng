@@ -18,6 +18,18 @@
         "honey": {
             "title": "honey"
         },
+        "detail": {
+            "reviews": "See the {{reviewsNumber}} clients reviews",
+            "packages": {
+                "S": "{{size}}g Jar",
+                "M": "{{size}}g Jar",
+                "L": "{{size}}g Jar"
+            },
+            "addToCart": "add to cart",
+            "addToWishList": "add to my wishlist",
+            "smallDiscount": "Take advantage of 5% discount on the pack of 3 jars of 250g (already reduced price).",
+            "bigDiscount": "Take advantage of 10% discount on the pack of 2 jars of 500g (already reduced price)."
+        },
         "about": {
             "title": "about",
             "text": "In order to guarantee organic honey, the Beaumiel teams carry out numerous laboratory analyses."
