@@ -37,6 +37,7 @@
         <div class="form_ctn">
             <h2>{{ t(trPath+'.form.title') }}</h2>
             <p *ngIf="msg" class="ok_msg">{{msg}}</p>
+
             <form [formGroup]="checkoutForm" 
                 (ngSubmit)="onSubmit()">
                   
@@ -44,23 +45,59 @@
                     id="name" 
                     formControlName="name"
                     placeholder="{{ t(trPath+'.form.namePlaceholder') }}"
-                    required/> 
+                    (focus)="isSubmitted = false"/> 
     
                 <input type="email" 
                     id="email" 
                     formControlName="email"
                     placeholder="{{ t(trPath+'.form.emailPlaceholder') }}"
-                    required/> 
+                    (focus)="isSubmitted = false"/> 
     
                 <textarea id="message"
                     formControlName="message"
                     placeholder="{{ t(trPath+'.form.messagePlaceholder') }}"
                     rows="8"
-                    maxLength="600"
-                    required></textarea>
+                    (focus)="isSubmitted = false"></textarea>
     
                 <button type="submit">{{ t(trPath+'.form.buttonText') }}</button>
             </form>
+
+            <!-- Show validation errors -->
+            @if (isSubmitted) {
+                @if (nameControl.invalid) {
+                    @if (nameControl.hasError('required')) {
+                        <div class="err_msg">Name can't be blank</div>
+                    }
+                    @if (nameControl.hasError('minlength')) {
+                        <div class="err_msg">Name is too short (minimum is {{ nameControl.errors!['minlength'].requiredLength }} characters)</div>
+                    }
+                    @if (nameControl.hasError('maxlength')) {
+                        <div class="err_msg">Name is too long (maximum is {{ nameControl.errors!['maxlength'].requiredLength }} characters)</div>
+                    }
+                    @if (nameControl.hasError('pattern')) {
+                        <div class="err_msg">Name can't contain special characters, nor numbers</div>
+                    }
+                }
+                @if (emailControl.invalid) {
+                    @if (emailControl.hasError('required')) {
+                        <div class="err_msg">Email can't be blank</div>
+                    }
+                    @if (emailControl.hasError('email') || emailControl.hasError('pattern')) {
+                        <div class="err_msg">Email is not valid</div>
+                    }
+                }
+                @if (messageControl.invalid) {
+                    @if (messageControl.hasError('required')) {
+                        <div class="err_msg">Message can't be blank</div>
+                    }
+                    @if (messageControl.hasError('minlength')) {
+                        <div class="err_msg">Message is too short (minimum is {{ messageControl.errors!['minlength'].requiredLength }} characters)</div>
+                    }
+                    @if (messageControl.hasError('maxlength')) {
+                        <div class="err_msg">Message is too long (maximum is {{ messageControl.errors!['maxlength'].requiredLength }} characters)</div>
+                    }
+                }
+            }
         </div>
     </section>
 </ng-container>

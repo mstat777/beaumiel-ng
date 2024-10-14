@@ -21,7 +21,6 @@ export class DetailComponent {
     faStar = faStar;
     faHeart = faHeart;
     faCartShopping = faCartShopping;
-    //honeys!: Honey[];
     honey!: Honey;
     id!: number;
     langSubscription!: Subscription;

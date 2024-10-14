@@ -68,7 +68,8 @@
                 "buttonText": "créer"
             },
             "haveAccount": "J'ai déjà un compte.",
-            "signinHere": "me connecter"
+            "signinHere": "me connecter",
+            "reqFields": "champs obligatoires"
         },
         "notFound": {
             "title": "erreur 404 : page non trouvée",

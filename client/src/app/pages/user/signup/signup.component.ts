@@ -36,10 +36,30 @@ export class SignupComponent {
     passIcon = faEyeSlash;
     passInputType: string = "password";
 
+    isSubmitted: boolean = false;
+
+    nameControl = new FormControl('', [
+        Validators.required, 
+        Validators.minLength(2),
+        Validators.maxLength(40),
+        Validators.pattern(/^[a-zàâçéèêëîïôûùüÿñæœ .'-]*$/i)
+    ]);
+    emailControl = new FormControl('', [
+        Validators.required, 
+        Validators.email,
+        Validators.pattern(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)
+    ]);
+    passwordControl = new FormControl('', [
+        Validators.required, 
+        Validators.minLength(8),
+        Validators.maxLength(128),
+        Validators.pattern(/[a-zA-Z\d]/)
+    ]);
+
     protected signupForm: FormGroup = new FormGroup({
-        name: new FormControl('', [Validators.required]),
-        email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', [Validators.required])
+        name: this.nameControl,
+        email: this.emailControl,
+        password: this.passwordControl
     }); 
 
     changePassIcon(): void {
@@ -58,6 +78,8 @@ export class SignupComponent {
     }
 
     onSubmit(): void {
+        this.isSubmitted = true;
+
         if (this.signupForm.valid){
             this.authService.signup(this.signupForm.value).subscribe({
                 next: () => this.router.navigate(['/user/signin']), 

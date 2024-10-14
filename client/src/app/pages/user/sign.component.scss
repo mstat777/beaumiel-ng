@@ -1,8 +1,8 @@
 @import '../../../variables.scss';
 
 .sign {
-    width: 90%;
-    max-width: 400px;
+    //width: 90%;
+    max-width: 480px;
     margin: 2rem auto;
 
     >h1 {
@@ -29,7 +29,7 @@
         flex-direction: column;
         width: 100%;
         margin: 1rem 0;
-        padding: 1rem;
+        padding: 1rem 1rem 1.5rem;
         background-color: $secondary-color;
 
         >* {
@@ -44,21 +44,25 @@
 
             .input_icon {
                 position: absolute;
-                left: 1.3rem;
+                left: .8rem;
                 top: .8rem;
                 font-size: 1.6rem;
                 color: $tertiary-color;
             }
             >input {
                 width: 100%;
-                padding: .6rem 4rem;
+                padding: .6rem .6rem .6rem 2.8rem;
                 border: 1px solid $tertiary-color;
+            }
+
+            >input[name="password"] {
+                padding-right: 2.8rem;
             }
 
             /* password eye button */
             .pass_icon_ctn {
                 position: absolute;
-                right: .8rem;
+                right: 0;
                 top: 0;
                 height: 3.2rem;
                 width: 3.2rem;
@@ -79,7 +83,7 @@
             display: inline-block;
             margin: 0 auto;
             padding: .7rem 1rem;
-            border: 1px solid $secondary-color;
+            border: 1px solid $primary-color;
             border-radius: 4px;
             font-weight: 600;
             color: $primary-color;
@@ -88,6 +92,7 @@
     }
 
     .redirect_txt {
+        margin: 2rem;
         text-align: left;
         >a {
             font-weight: 800;

@@ -22,8 +22,8 @@ import { TranslocoModule } from '@ngneat/transloco';
     styleUrl: '../sign.component.scss'
 })
 export class SigninComponent {
-    authService = inject(AuthService);
     router = inject(Router);
+    authService = inject(AuthService);
     trPath = "pages.signIn";
 
     logMsg: string = '';
@@ -35,9 +35,21 @@ export class SigninComponent {
     passIcon = faEyeSlash;
     passInputType: string = "password";
 
+    isSubmitted: boolean = false;
+
+    emailControl = new FormControl('', [
+        Validators.required, 
+        Validators.email,
+        Validators.pattern(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i)
+    ]);
+    passwordControl = new FormControl('', [
+        Validators.required, 
+        Validators.maxLength(128),
+    ]);
+
     protected signinForm: FormGroup = new FormGroup({
-        email: new FormControl('', [Validators.required, Validators.email]),
-        password: new FormControl('', [Validators.required])
+        email: this.emailControl,
+        password: this.passwordControl
     }); 
 
     changePassIcon(): void {
@@ -56,6 +68,8 @@ export class SigninComponent {
     }
 
     onSubmit(): void {
+        this.isSubmitted = true;
+
         if (this.signinForm.valid){
             this.authService.signin(this.signinForm.value).subscribe({
                 next: () => {

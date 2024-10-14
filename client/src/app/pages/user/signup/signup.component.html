@@ -13,7 +13,7 @@
                         name="name" 
                         placeholder="{{ t(trPath+'.form.namePlaceholder') }}"
                         formControlName="name"
-                        required/>
+                        (focus)="isSubmitted = false"/>
             </label>
     
             <label> 
@@ -22,7 +22,7 @@
                         name="email" 
                         placeholder="{{ t(trPath+'.form.emailPlaceholder') }}"
                         formControlName="email"
-                        required/>
+                        (focus)="isSubmitted = false"/>
             </label>
     
             <label> 
@@ -31,19 +31,58 @@
                         name="password" 
                         placeholder="{{ t(trPath+'.form.pswdPlaceholder') }}"
                         formControlName="password"
-                        required/>
+                        (focus)="isSubmitted = false"/>
     
                 <button type="button"
                         class="pass_icon_ctn" 
                         (click)="changePassIcon()">
                     <fa-icon [icon]="passIcon" class="pass_icon"></fa-icon>
                 </button>    
-    
             </label>
             
             <button type="submit">{{ t(trPath+'.form.buttonText') }}</button> 
         </form>
-    
+
+        <!-- Show validation errors -->
+        @if (isSubmitted) {
+            @if (nameControl.invalid) {
+                @if (nameControl.hasError('required')) {
+                    <div class="err_msg">Name can't be blank</div>
+                }
+                @if (nameControl.hasError('minlength')) {
+                    <div class="err_msg">Name is too short (minimum is {{ nameControl.errors!['minlength'].requiredLength }} characters)</div>
+                }
+                @if (nameControl.hasError('maxlength')) {
+                    <div class="err_msg">Name is too long (maximum is {{ nameControl.errors!['maxlength'].requiredLength }} characters)</div>
+                }
+                @if (nameControl.hasError('pattern')) {
+                    <div class="err_msg">Name can't contain special characters, nor numbers</div>
+                }
+            }
+            @if (emailControl.invalid) {
+                @if (emailControl.hasError('required')) {
+                    <div class="err_msg">Email can't be blank</div>
+                }
+                @if (emailControl.hasError('email') || emailControl.hasError('pattern')) {
+                    <div class="err_msg">Email is not valid</div>
+                }
+            }
+            @if (passwordControl.invalid) {
+                @if (passwordControl.hasError('required')) {
+                    <div class="err_msg">Password can't be blank</div>
+                }
+                @if (passwordControl.hasError('minlength')) {
+                    <div class="err_msg">Password is too short (minimum is {{ passwordControl.errors!['minlength'].requiredLength }} characters)</div>
+                }
+                @if (passwordControl.hasError('maxlength')) {
+                    <div class="err_msg">Password is too long (maximum is {{ passwordControl.errors!['maxlength'].requiredLength }} characters)</div>
+                }
+                @if (passwordControl.hasError('pattern')) {
+                    <div class="err_msg">Password must contain at least 1 uppercase letter, 1 lowercase letter and 1 number</div>
+                }
+            }
+        }
+
         <p class="redirect_txt">{{ t(trPath+'.haveAccount') }} <a routerLink="/user/signin">{{ t(trPath+'.signinHere') }}</a></p>
     
     </section>
