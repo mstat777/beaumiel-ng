@@ -4,7 +4,8 @@ import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslocoModule } from '@ngneat/transloco';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faUser, faLock, faEye, faEyeSlash, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser as faUserSolid, faLock, faEye, faEyeSlash, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser as faUserReg } from '@fortawesome/free-regular-svg-icons';
 import { AuthService } from '../../../auth/auth.service';
 
 @Component({
@@ -25,16 +26,13 @@ export class SignupComponent {
     authService = inject(AuthService);
     trPath = "pages.signUp";
 
-    logMsg: string = '';
-    errMsg: string = '';
-    name: string = '';
-    email: string = '';
-    password: string = '';
-    faUser = faUser;
+    faUserSolid = faUserSolid;
+    faUserReg = faUserReg;
     faEnvelope = faEnvelope;
     faLock = faLock;
     passIcon = faEyeSlash;
     passInputType: string = "password";
+    errMsg: string = '';
 
     isSubmitted: boolean = false;
 
@@ -44,6 +42,9 @@ export class SignupComponent {
         Validators.maxLength(40),
         Validators.pattern(/^[a-zàâçéèêëîïôûùüÿñæœ .'-]*$/i)
     ]);
+
+    //lastNameControl = this.firstNameControl;
+
     emailControl = new FormControl('', [
         Validators.required, 
         Validators.email,
@@ -57,7 +58,8 @@ export class SignupComponent {
     ]);
 
     protected signupForm: FormGroup = new FormGroup({
-        name: this.nameControl,
+        firstName: this.nameControl,
+        lastName: this.nameControl,
         email: this.emailControl,
         password: this.passwordControl
     }); 
@@ -72,11 +74,6 @@ export class SignupComponent {
          }
     }
     
-    clearMessages(): void {
-        this.logMsg = '';
-        this.errMsg = '';
-    }
-
     onSubmit(): void {
         this.isSubmitted = true;
 

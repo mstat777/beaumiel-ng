@@ -1,0 +1,25 @@
+<article class="cart_item">
+    <img src="{{'assets/img/products/honey_01_small.jpg'}}" alt="{{'honey_0'}}"/>
+
+    <div class="info_div">
+        <div class="titles_div">
+            <h2>Title of some honey</h2>
+            <p class="subtitle_txt">Subtitle is cool to have</p>
+            <p class="package_txt">package of 100g</p>
+        </div>
+
+        <div class="quantity_price_div">
+            <div class="quantity_delete_div">
+                <div class="counter">
+                    <button><fa-icon [icon]="faMinus"></fa-icon></button>
+                    <input type="text" ngModel=""/>
+                    <button><fa-icon [icon]="faPlus"></fa-icon></button>
+                </div>
+
+                <button class="delete_btn"><fa-icon [icon]="faTrashCan"></fa-icon></button>
+            </div>
+            
+            <span class="price">10,28 €</span>
+        </div>
+    </div>
+</article>

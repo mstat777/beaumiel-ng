@@ -73,7 +73,7 @@ export const createUserAccount =  async (req: Request, res: Response): Promise<a
             msg = "Un utilisateur avec cette adresse mail existe déjà !";
             res.status(409).json({ msg });
         } else if (!user.length) {
-            const queryCreateUser = "INSERT INTO users (name, email, password, role, date_created) VALUES (?, ?, ?, 'client', CURRENT_TIMESTAMP())";
+            const queryCreateUser = "INSERT INTO users (firstname, lastname, email, password, role, date_created) VALUES (?, ?, ?, ?, 'client', CURRENT_TIMESTAMP())";
             await queryWithArray(queryCreateUser, dataArray as []);
             msg = "User created successfully";
             res.status(201).json({ msg });

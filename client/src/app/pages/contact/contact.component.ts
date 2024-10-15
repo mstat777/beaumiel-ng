@@ -30,7 +30,8 @@ export class ContactComponent {
     faMapMarkerAlt = faMapMarkerAlt;
     faInstagram = faInstagram;  
 
-    msg: string = '';
+    okMsg: string = '';
+    errMsg: string = '';
     isSubmitted: boolean = false;
 
     constructor (private contactService: ContactService) {}
@@ -59,23 +60,22 @@ export class ContactComponent {
     }); 
 
     ngOnInit(): void {
-        this.msg = '';
+        this.okMsg = '';
+        this.errMsg = '';
     }
 
     onSubmit(): void {
         this.isSubmitted = true;
-        console.warn('Your order has been submitted', this.checkoutForm.value);
 
         if (this.checkoutForm.valid){
             this.contactService.postMessage(this.checkoutForm.value)
             .subscribe({
                 next: res => {
-                    this.msg = "Merci de nous avoir contacté.\nVotre message a bien été transmis à notre équipe.";
-                    console.log(res);
+                    this.okMsg = "Merci de nous avoir contacté.\nVotre message a bien été transmis à notre équipe.";
                     this.checkoutForm.reset();
                 }, 
                 error: err => {
-                    this.msg = "Erreur. Le message n'a pas été envoyé."
+                    this.errMsg = "Erreur. Le message n'a pas été envoyé."
                     console.warn(err.responseText);
                     console.log({ err });
                 }

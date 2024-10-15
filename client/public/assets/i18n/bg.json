@@ -8,7 +8,8 @@
             "contactLink": "контакт",
             "testLink": "тест",
             "signinLink": "вход"
-        }
+        },
+        "cartBtnTitle": "количка"
     },
     "pages": {
         "home": {
@@ -29,6 +30,9 @@
             "addToWishList": "добави в любими",
             "smallDiscount": "възползвайте се от 5% отстъпка върху пакета от 3 буркана по 250 гр. (цената е с включено намаление).",
             "bigDiscount": "възползвайте се от 10% отстъпка върху пакета от 2 буркана по 500 гр. (цената е с включено намаление)."
+        },
+        "cart": {
+            "title": "Твоята количка"
         },
         "about": {
             "title": "за нас",
@@ -62,7 +66,8 @@
         "signUp": {
             "title": "регистрация",
             "form": {
-                "namePlaceholder": "вашите имена...",
+                "firstNamePlaceholder": "вашето име...",
+                "lastNamePlaceholder": "вашата фамилия...",
                 "emailPlaceholder": "вашият имейл...",
                 "pswdPlaceholder": "вашата парола...",
                 "buttonText": "регистрирай"

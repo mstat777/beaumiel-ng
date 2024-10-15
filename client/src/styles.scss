@@ -21,7 +21,7 @@ body {
         width: 100%;
         min-height: calc(100vh - #{$header-height} - #{$footer-height});
         margin: $header-height 0 0;
-        padding: 0 4rem;
+        padding: 0 3rem;
         text-align: center;
         background: repeat 60%/70% linear-gradient(rgba(255, 255, 255, 0.8), rgba(255,255,255,0.8)), url("../public/assets/img/preview900.png");
         background-size: 300px;

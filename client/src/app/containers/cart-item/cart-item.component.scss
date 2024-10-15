@@ -1,0 +1,80 @@
+@import '../../../variables.scss';
+
+.cart_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding: .5rem;
+    border: 1px solid $lightgrey-color;
+    background-color: white;
+    
+    >img {
+        height: 100px;
+        width: 60px;
+    }
+
+    .info_div {
+        width: 100%;
+        padding-left: 2rem;
+
+        .titles_div {
+            text-align: left;
+            h2 {
+                margin: 0;
+                font-size: 2.2rem;
+            }
+        }
+
+        .quantity_price_div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+
+            .quantity_delete_div {
+                display: flex;
+        
+                button {
+                    border: none;
+                }
+
+                .counter {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 1rem;
+                    border: 1px solid $secondary-color;
+
+                    >button {
+                        width: 26px;
+                        height: 26px;
+                        background-color: transparent;
+                    }
+
+                    >input {
+                        width: 3rem;
+                        border: none;
+                    }
+                }
+
+                .delete_btn {
+                    width: 30px;
+                    height: 30px;
+                    color: $secondary-color;
+                    background-color: transparent;
+                    >fa-icon {
+                        font-size: 1.8rem;
+                    }
+                }
+            }
+
+            .price {
+                font-size: 1.8rem;
+                font-weight: 600;
+                color: $tertiary-color;
+            }
+        }
+    }
+}

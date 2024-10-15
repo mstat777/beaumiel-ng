@@ -8,7 +8,8 @@
             "contactLink": "contact",
             "testLink": "test",
             "signinLink": "se connecter"
-        }
+        },
+        "cartBtnTitle": "panier"
     },
     "pages": {
         "home": {
@@ -29,6 +30,9 @@
             "addToWishList": "ajouter à ma liste d'envie",
             "smallDiscount": "Profitez d'une remise de 5% sur le lot de 3 pots de 250g (prix déjà remisé).",
             "bigDiscount": "Profitez d'une remise de 10% sur le lot de 2 pots de 500g (prix déjà remisé)."
+        },
+        "cart": {
+            "title": "votre panier"
         },
         "about": {
             "title": "à propos",
@@ -62,7 +66,8 @@
         "signUp": {
             "title": "je crée mon compte",
             "form": {
-                "namePlaceholder": "vos noms...",
+                "firstNamePlaceholder": "votre prénom...",
+                "lastNamePlaceholder": "votre nom...",
                 "emailPlaceholder": "votre mail...",
                 "pswdPlaceholder": "votre mot de passe...",
                 "buttonText": "créer"

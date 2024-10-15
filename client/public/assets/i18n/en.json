@@ -8,7 +8,8 @@
             "contactLink": "contact",
             "testLink": "test",
             "signinLink": "sign in"
-        }
+        },
+        "cartBtnTitle": "cart"
     },
     "pages": {
         "home": {
@@ -29,6 +30,9 @@
             "addToWishList": "add to my wishlist",
             "smallDiscount": "Take advantage of 5% discount on the pack of 3 jars of 250g (already reduced price).",
             "bigDiscount": "Take advantage of 10% discount on the pack of 2 jars of 500g (already reduced price)."
+        },
+        "cart": {
+            "title": "your cart"
         },
         "about": {
             "title": "about",
@@ -62,7 +66,8 @@
         "signUp": {
             "title": "create an account",
             "form": {
-                "namePlaceholder": "your names...",
+                "firstNamePlaceholder": "your first name...",
+                "lastNamePlaceholder": "your last name...",
                 "emailPlaceholder": "your email...",
                 "pswdPlaceholder": "your password...",
                 "buttonText": "create"

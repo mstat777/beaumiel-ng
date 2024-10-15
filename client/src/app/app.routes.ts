@@ -11,6 +11,7 @@ import { SigninComponent } from './pages/user/signin/signin.component';
 import { authGuard } from './auth/auth.guard';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { SignupComponent } from './pages/user/signup/signup.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 export const routes: Routes = [
     { path: '', 
@@ -34,6 +35,8 @@ export const routes: Routes = [
         resolve: {
             honeys: DataResolverService
         }},*/
+    { path: 'cart', 
+        component: CartComponent },  
     { path: 'about', 
         component: AboutComponent },
     { path: 'contact', 

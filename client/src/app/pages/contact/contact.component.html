@@ -36,7 +36,8 @@
     
         <div class="form_ctn">
             <h2>{{ t(trPath+'.form.title') }}</h2>
-            <p *ngIf="msg" class="ok_msg">{{msg}}</p>
+            <p *ngIf="okMsg" class="ok_msg">{{okMsg}}</p>
+            <p *ngIf="errMsg" class="err_msg">{{errMsg}}</p>
 
             <form [formGroup]="checkoutForm" 
                 (ngSubmit)="onSubmit()">
@@ -63,7 +64,7 @@
             </form>
 
             <!-- Show validation errors -->
-            @if (isSubmitted) {
+            @if (isSubmitted && !okMsg && !errMsg) {
                 @if (nameControl.invalid) {
                     @if (nameControl.hasError('required')) {
                         <div class="err_msg">Name can't be blank</div>

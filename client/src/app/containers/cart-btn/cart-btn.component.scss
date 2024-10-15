@@ -1,0 +1,42 @@
+@import '../../../variables.scss';
+$btn-height: 36px;
+
+.cart_btn {
+    position: absolute;
+    top: calc(($header-height - $btn-height) / 2);
+    right: calc(($header-height - $btn-height) / 2 + $btn-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: $btn-height;
+    width: $btn-height;
+    border: none;
+    color: white;
+    background-color: transparent; 
+    z-index: 10;
+
+    @media screen and (min-width: $tablet) {
+        right: calc(($header-height - $btn-height) / 2 + $btn-height + 1rem);
+    }
+
+    >fa-icon {
+        font-size: 2rem;
+        color: $lightgrey-color;
+    }
+
+    .nb_items {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        font-size: 1rem;
+        font-weight: 600;
+        color: white;
+        background-color: $error_color;
+    }
+}

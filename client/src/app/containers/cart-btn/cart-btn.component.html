@@ -1,0 +1,8 @@
+<ng-container *transloco="let t">
+<button (click)="navigate('/cart')" 
+        class="cart_btn"
+        title="{{ t('containers.cartBtnTitle') }}">      
+    <fa-icon [icon]="faCartShopping"></fa-icon>
+    <div class="nb_items" *ngIf="nbCartItems">{{nbCartItems}}</div>
+</button>
+</ng-container>

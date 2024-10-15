@@ -4,7 +4,7 @@ import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../../auth/auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { TranslocoModule } from '@ngneat/transloco';
 
 @Component({
@@ -28,9 +28,8 @@ export class SigninComponent {
 
     logMsg: string = '';
     errMsg: string = '';
-    email: string = '';
-    password: string = '';
-    faUser = faUser;
+
+    faEnvelope = faEnvelope;
     faLock = faLock;
     passIcon = faEyeSlash;
     passInputType: string = "password";
