@@ -13,7 +13,7 @@
     </div>
 
     <div class="bottom_info_div">
-        <img src="{{'assets/img/products/honey_0'+honey.id+'_big.jpg'}}" alt="{{'honey_0'+honey.id}}"/>
+        <img src="{{imgUrl+'products/honey_0'+honey.id+'_big.jpg'}}" alt="{{'honey_0'+honey.id}}"/>
 
         <select name="object">
             <option 
@@ -24,7 +24,9 @@
 
         <p class="large_text">{{honey.price}} €</p>
 
-        <button class="add_to_cart_btn"><fa-icon [icon]="faCartShopping"></fa-icon>{{ t(trPath+'.addToCart') }}</button>
+        <button class="add_to_cart_btn" (click)="addToCart()">
+            <fa-icon [icon]="faCartShopping"></fa-icon>{{ t(trPath+'.addToCart') }}
+        </button>
 
         <button class="add_to_wishlist_btn">
             <p><fa-icon [icon]="faHeart"></fa-icon>{{ t(trPath+'.addToWishList') }}</p>

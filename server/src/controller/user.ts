@@ -18,7 +18,7 @@ export const checkToken = async (req: Request, res: Response): Promise<any> => {
                 email: user[0].email, 
                 accountType: user[0].role});
         }).catch((err) => {
-            return res.status(500).json({message: err.message,err});
+            return res.status(500).json([{msg: err.message,err}]);
         });
     } catch (err) {
         return res.status(500).json({err});
@@ -46,11 +46,11 @@ export const userSignIn = async (req: Request, res: Response): Promise<any> => {
                     role: user[0].role });
             } else {
                 msg = "Mot de passe erroné";
-                return res.status(409).json({ msg });
+                return res.status(409).json([{ msg }]);
             }
         } else if (!user.length){
             msg = "Mauvais identifiant";
-            return res.status(409).json({ msg });
+            return res.status(409).json([{ msg }]);
         }
     } catch (err) {
         return res.status(500).json({err});

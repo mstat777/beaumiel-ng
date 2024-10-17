@@ -43,8 +43,6 @@ export class SignupComponent {
         Validators.pattern(/^[a-zàâçéèêëîïôûùüÿñæœ .'-]*$/i)
     ]);
 
-    //lastNameControl = this.firstNameControl;
-
     emailControl = new FormControl('', [
         Validators.required, 
         Validators.email,
@@ -81,8 +79,11 @@ export class SignupComponent {
             this.authService.signup(this.signupForm.value).subscribe({
                 next: () => this.router.navigate(['/user/signin']), 
                 error: err => {
-                    this.errMsg = `Erreur : ${err}`;
-                    console.log({ err });
+                    if (err.error[0].msg) {
+                        this.errMsg = `Erreur: ${err.error[0].msg}`;
+                    } else {
+                        console.log(err);
+                    }
                 }
             });
         }

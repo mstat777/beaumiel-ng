@@ -89,6 +89,9 @@
                 }
             }
         }
+        @if (errMsg) {
+            <div class="err_msg">{{errMsg}}</div>
+        }
 
         <p class="redirect_txt">{{ t(trPath+'.haveAccount') }} <a routerLink="/user/signin">{{ t(trPath+'.signinHere') }}</a></p>
     

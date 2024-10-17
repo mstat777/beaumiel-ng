@@ -11,8 +11,8 @@ import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
     styleUrl: './cart-item.component.scss'
 })
 export class CartItemComponent {
+    imgUrl = import.meta.env.NG_APP_IMG_URL;
     faPlus = faPlus;
     faMinus = faMinus;
     faTrashCan = faTrashCan;
-    
 }

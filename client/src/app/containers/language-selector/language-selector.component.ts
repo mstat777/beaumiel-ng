@@ -10,39 +10,34 @@ import { TranslocoService } from '@ngneat/transloco';
   styleUrl: './language-selector.component.scss'
 })
 export class LanguageSelectorComponent {
+    imgUrl = import.meta.env.NG_APP_IMG_URL+'flags/';
     langMenu: boolean = false;
-
-    constructor(private translocoService: TranslocoService) {}
-
     languagesLists: Array<
         Record<'imgUrl'|'code'|'name'|'shorthand', string>
     > = [
         {
-            imgUrl: 'assets/img/flags/french.png',
+            imgUrl: this.imgUrl+'french.png',
             code: 'fr',
             name: 'French',
             shorthand: 'FRE'
         },
         {
-            imgUrl: 'assets/img/flags/english.png',
+            imgUrl: this.imgUrl+'english.png',
             code: 'en',
             name: 'English',
             shorthand: 'ENG'
         },
         {
-            imgUrl: 'assets/img/flags/bulgarian.png',
+            imgUrl: this.imgUrl+'bulgarian.png',
             code: 'bg',
             name: 'Bulgarian',
             shorthand: 'BUL'
         }
     ];
+    currentLang = this.languagesLists[0];
 
-    currentLang: Record<'imgUrl'|'code'|'name'|'shorthand', string> = {
-        imgUrl: 'assets/img/flags/french.png',
-        code: 'fr',
-        name: 'French',
-        shorthand: 'FRE'
-    };
+    constructor(private translocoService: TranslocoService) {}
+
 
     changeLanguage(languageCode: string): void {
         this.translocoService.setActiveLang(languageCode);

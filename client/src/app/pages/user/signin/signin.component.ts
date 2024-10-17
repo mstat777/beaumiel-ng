@@ -62,6 +62,7 @@ export class SigninComponent {
     }
     
     clearMessages(): void {
+        this.isSubmitted = false;
         this.logMsg = '';
         this.errMsg = '';
     }
@@ -77,8 +78,11 @@ export class SigninComponent {
                     }
                 }, 
                 error: err => {
-                    this.errMsg = `Erreur: ${err.msg}`;
-                    console.log({ err });
+                    if (err.error[0].msg) {
+                        this.errMsg = `Erreur: ${err.error[0].msg}`;
+                    } else {
+                        console.log(err);
+                    }
                 }
             });
         }

@@ -11,7 +11,7 @@
                     name="email" 
                     placeholder="{{ t(trPath+'.form.emailPlaceholder') }}"
                     formControlName="email"
-                    (focus)="isSubmitted = false"/>
+                    (focus)="clearMessages();"/>
         </label>
 
         <label> 
@@ -20,7 +20,7 @@
                     name="password" 
                     placeholder="{{ t(trPath+'.form.pswdPlaceholder') }}"
                     formControlName="password"
-                    (focus)="isSubmitted = false"/>
+                    (focus)="clearMessages()"/>
 
             <button type="button"
                     class="pass_icon_ctn" 
@@ -57,6 +57,9 @@
                 <div class="err_msg">Password must contain at least 1 uppercase letter, 1 lowercase letter and 1 number</div>
             }
         }
+    }
+    @if (errMsg) {
+        <div class="err_msg">{{errMsg}}</div>
     }
 
     <p class="redirect_txt">{{ t(trPath+'.notHaveAccount') }} <a routerLink="/user/signup">{{ t(trPath+'.createAccount') }}</a></p>

@@ -13,5 +13,5 @@ import { NgIf } from '@angular/common';
 })
 export class CardComponent {
     @Input() honey!: Honey;
-    imgPath: string = "assets/img/products/honey_01_big.jpg";
+    imgUrl = import.meta.env.NG_APP_IMG_URL;
 }

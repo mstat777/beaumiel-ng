@@ -23,6 +23,7 @@ import { TranslocoModule } from '@ngneat/transloco';
     styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+    imgUrl = import.meta.env.NG_APP_IMG_URL;
     wMobile: string = '(max-width: 767px)';
     isMobile!: boolean;
     navDisplay: boolean = false;
