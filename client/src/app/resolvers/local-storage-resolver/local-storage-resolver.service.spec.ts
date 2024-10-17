@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { DataResolverService } from './data-resolver.service';
+import { LocalStorageService } from './local-storage.service';
 
-describe('DataResolverService', () => {
-  let service: DataResolverService;
+describe('LocalStorageService', () => {
+  let service: LocalStorageService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(DataResolverService);
+    service = TestBed.inject(LocalStorageService);
   });
 
   it('should be created', () => {

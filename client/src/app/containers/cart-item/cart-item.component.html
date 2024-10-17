@@ -1,11 +1,12 @@
-<article class="cart_item">
+<ng-container *transloco="let t">
+<article class="cart_item" *ngIf="cartItem">
     <img src="{{imgUrl+'products/honey_01_small.jpg'}}" alt="{{'honey_0'}}"/>
 
     <div class="info_div">
         <div class="titles_div">
-            <h2>Title of some honey</h2>
-            <p class="subtitle_txt">Subtitle is cool to have</p>
-            <p class="package_txt">package of 100g</p>
+            <h2>{{cartItem.name}}</h2>
+            <p class="subtitle_txt">{{cartItem.subtitle}}</p>
+            <p class="package_txt">{{ t(trPath+'.size', { size: cartItem.size }) }}</p>
         </div>
 
         <div class="quantity_price_div">
@@ -19,7 +20,8 @@
                 <button class="delete_btn"><fa-icon [icon]="faTrashCan"></fa-icon></button>
             </div>
             
-            <span class="price">10,28 €</span>
+            <span class="price">{{cartItem.price}} €</span>
         </div>
     </div>
 </article>
+</ng-container>

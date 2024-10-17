@@ -1,8 +1,11 @@
 <ng-container *transloco="let t">
 <section class="cart_section">
     <h1>{{ t(trPath+'.title') }}</h1>
-    <app-cart-item></app-cart-item>
-    <app-cart-item></app-cart-item>
-    <app-cart-item></app-cart-item>
+    <div *ngIf="!cart.length">Empty cart</div>
+    <ng-container *ngIf="cart.length">
+        <p>{{cart.length}}</p>
+        <app-cart-item *ngFor="let cartItem of cart" [cartItem]="cartItem">
+        </app-cart-item>
+    </ng-container>
 </section>
 </ng-container>

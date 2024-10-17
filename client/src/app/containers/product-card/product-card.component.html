@@ -1,0 +1,12 @@
+<ng-container *transloco="let t">
+<article class="product" *ngIf="honey">
+    <h2>{{honey.name}}</h2>
+    <p class="subtitle_text">{{honey.subtitle}}</p>
+
+    <img src="{{imgUrl+'products/honey_0'+honey.id+'_big.jpg'}}" alt='{{"honey_0"+honey.id}}'/>
+
+    <p class="price_text"><span>{{t(trPath+'.starting')}}</span>{{honey.price}} €</p>
+
+    <a routerLink='{{"/detail/0"+honey.id}}'>{{t(trPath+'.seeProduct')}}</a>
+</article>
+</ng-container>

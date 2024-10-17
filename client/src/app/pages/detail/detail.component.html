@@ -1,5 +1,5 @@
 <ng-container *transloco="let t">
-<section class="detail_section" *ngIf="honey">
+<section class="detail_section" *ngIf="honey && packagings?.length">
     <div class="main_info_div">
         <div>
             <h1>{{honey.name}}</h1>
@@ -15,14 +15,15 @@
     <div class="bottom_info_div">
         <img src="{{imgUrl+'products/honey_0'+honey.id+'_big.jpg'}}" alt="{{'honey_0'+honey.id}}"/>
 
-        <select name="object">
+        <select (change)="onChangeSelect($event)">
             <option 
-                key=""
-                value="">{{ t(trPath+'.package.S', { size: 23 }) }}
+                *ngFor="let packaging of packagings; index as i"
+                [value]="i">
+            {{ t(trPath+'.package', { size: packaging.size }) }}
             </option>
         </select>
 
-        <p class="large_text">{{honey.price}} €</p>
+        <p class="large_text">{{packagings[selectedPackIndex].price}} €</p>
 
         <button class="add_to_cart_btn" (click)="addToCart()">
             <fa-icon [icon]="faCartShopping"></fa-icon>{{ t(trPath+'.addToCart') }}

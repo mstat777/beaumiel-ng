@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Honey } from '../../models/honey';
+import { Honey, Packaging } from '../../models/types';
 import { HttpClient } from '@angular/common/http';
 import { TranslocoService } from '@ngneat/transloco';
 import { Observable, catchError, of } from 'rxjs';
@@ -15,12 +15,21 @@ export class HoneyService {
         private translocoService: TranslocoService
     ) {}
 
-    getApiData(): Observable<Honey[]> {
+    getHoneysData(): Observable<Honey[]> {
         const lang = this.translocoService.getActiveLang();
-        let URL = `${this.baseURL}/honeys/${lang}`;
+        let URL = `${this.baseURL}/honey/main/${lang}`;
         return this.http.get<Honey[]>(URL)
             .pipe(
-                catchError(this.handleError<Honey[]>('getApiData', []))
+                catchError(this.handleError<Honey[]>('getHoneysData', []))
+            ); 
+    }
+
+    getPackagingsData(honeyId: number): Observable<Packaging[]> {
+        const lang = this.translocoService.getActiveLang();
+        let URL = `${this.baseURL}/honey/packagings/${honeyId}`;
+        return this.http.get<Packaging[]>(URL)
+            .pipe(
+                catchError(this.handleError<Packaging[]>('getPackagingsData', []))
             ); 
     }
 

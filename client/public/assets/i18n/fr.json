@@ -9,7 +9,14 @@
             "testLink": "test",
             "signinLink": "se connecter"
         },
-        "cartBtnTitle": "panier"
+        "cartBtnTitle": "panier",
+        "productCard": {
+            "starting": "à partir de",
+            "seeProduct": "voir ce produit"
+        },
+        "cartItem": {
+            "size": "Pot de {{size}}g"
+        }
     },
     "pages": {
         "home": {
@@ -21,11 +28,7 @@
         },
         "detail": {
             "reviews": "Voir les {{reviewsNumber}} avis clients",
-            "package": {
-                "S": "Pot de {{size}}g",
-                "M": "Pot de {{size}}g",
-                "L": "Pot de {{size}}g"
-            },
+            "package": "Pot de {{size}}g",
             "addToCart": "ajouter au panier",
             "addToWishList": "ajouter à ma liste d'envie",
             "smallDiscount": "Profitez d'une remise de 5% sur le lot de 3 pots de 250g (prix déjà remisé).",

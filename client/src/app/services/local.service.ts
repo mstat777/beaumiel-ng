@@ -7,8 +7,8 @@ import CryptoJS from 'crypto-js';
 })
 export class LocalService {
 
-    //key = import.meta.env.NG_APP_SK;
-    key='562';
+    key = import.meta.env.NG_APP_SK;
+    //key='562';
 
     constructor() { }
 

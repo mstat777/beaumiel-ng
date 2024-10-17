@@ -9,7 +9,14 @@
             "testLink": "тест",
             "signinLink": "вход"
         },
-        "cartBtnTitle": "количка"
+        "cartBtnTitle": "количка",
+        "productCard": {
+            "starting": "цени от",
+            "seeProduct": "виж повече"
+        },
+        "cartItem": {
+            "size": "буркан {{size}} гр."
+        }
     },
     "pages": {
         "home": {
@@ -21,11 +28,7 @@
         },
         "detail": {
             "reviews": "вижте {{reviewsNumber}} ревюта",
-            "package": {
-                "S": "буркан {{size}} гр.",
-                "M": "буркан {{size}} гр.",
-                "L": "буркан {{size}} гр."
-            },
+            "package": "буркан {{size}} гр.",
             "addToCart": "добави в количката",
             "addToWishList": "добави в любими",
             "smallDiscount": "възползвайте се от 5% отстъпка върху пакета от 3 буркана по 250 гр. (цената е с включено намаление).",

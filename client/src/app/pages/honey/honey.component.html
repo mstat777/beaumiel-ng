@@ -2,6 +2,6 @@
     <h1>{{ t(trPath+'.title') }}</h1>
     
     <section class="products_section" *ngIf="honeys?.length">
-        <app-card *ngFor="let honey of honeys" [honey]="honey"></app-card>
+        <app-product-card *ngFor="let honey of honeys" [honey]="honey"></app-product-card>
     </section>
 </ng-container>
