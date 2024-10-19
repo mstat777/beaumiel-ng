@@ -3,13 +3,13 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import * as L from 'leaflet';
 
 @Component({
-  selector: 'app-google-map',
+  selector: 'app-open-street-map',
   standalone: true,
   imports: [ LeafletModule ],
-  templateUrl: './google-map.component.html',
-  styleUrl: './google-map.component.scss'
+  templateUrl: './open-street-map.component.html',
+  styleUrl: './open-street-map.component.scss'
 })
-export class GoogleMapComponent {
+export class OpenStreetMapComponent {
     imgUrl = import.meta.env.NG_APP_IMG_URL;
 
     options: L.MapOptions = {

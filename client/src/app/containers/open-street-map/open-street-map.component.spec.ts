@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductCardComponent } from './product-card.component';
+import { OpenStreetMapComponent } from './open-street-map.component';
 
-describe('ProductCardComponent', () => {
-  let component: ProductCardComponent;
-  let fixture: ComponentFixture<ProductCardComponent>;
+describe('OpenStreetMapComponent', () => {
+  let component: OpenStreetMapComponent;
+  let fixture: ComponentFixture<OpenStreetMapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProductCardComponent]
+      imports: [OpenStreetMapComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ProductCardComponent);
+    fixture = TestBed.createComponent(OpenStreetMapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

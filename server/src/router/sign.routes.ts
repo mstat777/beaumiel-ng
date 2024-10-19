@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { checkToken, 
         userSignIn,
-        createUserAccount } from '../controller/user';
+        createUserAccount } from '../controller/sign';
 import { validationRules, validateResult } from '../middlewares/validate';
         
 const router = Router();

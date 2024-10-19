@@ -1,40 +1,47 @@
 import { Component, inject } from '@angular/core';
-import { RouterLink, Router, RouterModule } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService } from '../../../auth/auth.service';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { TranslocoModule } from '@ngneat/transloco';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faUser as faUserSolid, faLock, faEye, faEyeSlash, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faUser as faUserReg } from '@fortawesome/free-regular-svg-icons';
+import { SignService } from '../sign.service';
 
 @Component({
-    selector: 'app-signin',
+    selector: 'app-signup',
     standalone: true,
-    imports: [ 
-        RouterLink, 
-        RouterModule,
-        NgIf, 
+    imports: [
+        RouterLink,
         ReactiveFormsModule,
         FontAwesomeModule, 
-        TranslocoModule
+        TranslocoModule,
+        NgIf
     ],
-    templateUrl: './signin.component.html',
+    templateUrl: './signup.component.html',
     styleUrl: '../sign.component.scss'
 })
-export class SigninComponent {
+export class SignupComponent {
     router = inject(Router);
-    authService = inject(AuthService);
-    trPath = "pages.signIn";
+    signService = inject(SignService);
+    trPath = "pages.signUp";
 
-    logMsg: string = '';
-    errMsg: string = '';
-
+    faUserSolid = faUserSolid;
+    faUserReg = faUserReg;
     faEnvelope = faEnvelope;
     faLock = faLock;
     passIcon = faEyeSlash;
     passInputType: string = "password";
+    errMsg: string = '';
 
     isSubmitted: boolean = false;
+
+    nameControl = new FormControl('', [
+        Validators.required, 
+        Validators.minLength(2),
+        Validators.maxLength(40),
+        Validators.pattern(/^[a-zàâçéèêëîïôûùüÿñæœ .'-]*$/i)
+    ]);
 
     emailControl = new FormControl('', [
         Validators.required, 
@@ -43,10 +50,14 @@ export class SigninComponent {
     ]);
     passwordControl = new FormControl('', [
         Validators.required, 
+        Validators.minLength(8),
         Validators.maxLength(128),
+        Validators.pattern(/[a-zA-Z\d]/)
     ]);
 
-    protected signinForm: FormGroup = new FormGroup({
+    protected signupForm: FormGroup = new FormGroup({
+        firstName: this.nameControl,
+        lastName: this.nameControl,
         email: this.emailControl,
         password: this.passwordControl
     }); 
@@ -61,22 +72,12 @@ export class SigninComponent {
          }
     }
     
-    clearMessages(): void {
-        this.isSubmitted = false;
-        this.logMsg = '';
-        this.errMsg = '';
-    }
-
     onSubmit(): void {
         this.isSubmitted = true;
 
-        if (this.signinForm.valid){
-            this.authService.signin(this.signinForm.value).subscribe({
-                next: () => {
-                    if(this.authService.isLoggedIn()){
-                        this.router.navigate(['/admin']);
-                    }
-                }, 
+        if (this.signupForm.valid){
+            this.signService.signup(this.signupForm.value).subscribe({
+                next: () => this.router.navigate(['/signin']), 
                 error: err => {
                     if (err.error[0].msg) {
                         this.errMsg = `Erreur: ${err.error[0].msg}`;

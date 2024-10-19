@@ -1,47 +1,41 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink, Router, RouterModule } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { TranslocoModule } from '@ngneat/transloco';
+import { SignService } from '../sign.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faUser as faUserSolid, faLock, faEye, faEyeSlash, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faUser as faUserReg } from '@fortawesome/free-regular-svg-icons';
-import { AuthService } from '../../../auth/auth.service';
+import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { TranslocoModule } from '@ngneat/transloco';
+import { LocalService } from '../../../services/local.service';
 
 @Component({
-    selector: 'app-signup',
+    selector: 'app-signin',
     standalone: true,
-    imports: [
-        RouterLink,
+    imports: [ 
+        RouterLink, 
+        RouterModule,
+        NgIf, 
         ReactiveFormsModule,
         FontAwesomeModule, 
-        TranslocoModule,
-        NgIf
+        TranslocoModule
     ],
-    templateUrl: './signup.component.html',
+    templateUrl: './signin.component.html',
     styleUrl: '../sign.component.scss'
 })
-export class SignupComponent {
+export class SigninComponent {
     router = inject(Router);
-    authService = inject(AuthService);
-    trPath = "pages.signUp";
+    signService = inject(SignService);
+    trPath = "pages.signIn";
 
-    faUserSolid = faUserSolid;
-    faUserReg = faUserReg;
+    logMsg: string = '';
+    errMsg: string = '';
+
     faEnvelope = faEnvelope;
     faLock = faLock;
     passIcon = faEyeSlash;
     passInputType: string = "password";
-    errMsg: string = '';
 
     isSubmitted: boolean = false;
-
-    nameControl = new FormControl('', [
-        Validators.required, 
-        Validators.minLength(2),
-        Validators.maxLength(40),
-        Validators.pattern(/^[a-zàâçéèêëîïôûùüÿñæœ .'-]*$/i)
-    ]);
 
     emailControl = new FormControl('', [
         Validators.required, 
@@ -50,17 +44,15 @@ export class SignupComponent {
     ]);
     passwordControl = new FormControl('', [
         Validators.required, 
-        Validators.minLength(8),
         Validators.maxLength(128),
-        Validators.pattern(/[a-zA-Z\d]/)
     ]);
 
-    protected signupForm: FormGroup = new FormGroup({
-        firstName: this.nameControl,
-        lastName: this.nameControl,
+    protected signinForm: FormGroup = new FormGroup({
         email: this.emailControl,
         password: this.passwordControl
     }); 
+
+    constructor (private localService: LocalService) {}
 
     changePassIcon(): void {
         if (this.passInputType === "password") {
@@ -72,12 +64,30 @@ export class SignupComponent {
          }
     }
     
+    clearMessages(): void {
+        this.isSubmitted = false;
+        this.logMsg = '';
+        this.errMsg = '';
+    }
+
     onSubmit(): void {
         this.isSubmitted = true;
 
-        if (this.signupForm.valid){
-            this.authService.signup(this.signupForm.value).subscribe({
-                next: () => this.router.navigate(['/user/signin']), 
+        if (this.signinForm.valid){
+            this.signService.signin(this.signinForm.value).subscribe({
+                next: () => {
+                    const userData = this.localService.getData('authUser');
+                    console.log(userData);
+                    const userDataParsed = JSON.parse(userData);
+                    console.log(userDataParsed);
+                    const role = 'admin';
+                    console.log(role);
+
+                    if(this.signService.isLoggedIn()){
+                        role === 'admin' ?
+                            this.router.navigate(['/admin']) : this.router.navigate(['/honey']) ;
+                    }
+                }, 
                 error: err => {
                     if (err.error[0].msg) {
                         this.errMsg = `Erreur: ${err.error[0].msg}`;

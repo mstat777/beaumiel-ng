@@ -1,1 +1,1 @@
-My first Angular - Express - Typescript full stack project
+Angular - Express - Typescript full stack project

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../auth/auth.service';
+import { SignService } from '../../sign/sign.service';
 
 @Component({
     selector: 'app-admin-dashboard',
@@ -10,11 +10,11 @@ import { AuthService } from '../../../auth/auth.service';
     styleUrl: './admin-dashboard.component.scss'
 })
 export class AdminDashboardComponent {
-    authService = inject(AuthService);
+    signService = inject(SignService);
     router = inject(Router);
 
     public signout() {
-        this.authService.signout();
-        this.router.navigate(['/user/signin']);
+        this.signService.signout();
+        this.router.navigate(['/signin']);
     }
 }
