@@ -1,11 +1,17 @@
 <ng-container *transloco="let t">
-<section class="cart_section">
+<section class="cart_section" *ngIf="cart">
     <h1>{{ t(trPath+'.title') }}</h1>
-    <div *ngIf="!cart.length">Empty cart</div>
+
+    <div *ngIf="!cart.length">{{ t(trPath+'.emptyCart') }}</div>
+
     <ng-container *ngIf="cart.length">
-        <p>{{cart.length}}</p>
-        <app-cart-item *ngFor="let cartItem of cart" [cartItem]="cartItem">
+        <app-cart-item *ngFor="let cartItem of cart, index as i" [cartItem]="cartItem" [itemIndex]="i">
         </app-cart-item>
+
+        <div class="total">
+            <h2>{{t(trPath+'.totalPrice')}} <span>{{totalPrice | currency: 'EUR' : ''}} €</span></h2>
+            <p class="tax_note">{{ t(trPath+'.taxNote') }}</p>
+        </div>
     </ng-container>
 </section>
 </ng-container>

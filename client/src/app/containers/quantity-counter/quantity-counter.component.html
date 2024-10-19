@@ -1,0 +1,10 @@
+<div class="counter">
+    <button (click)="changeQuantity('minus')">
+        <fa-icon [icon]="faMinus"></fa-icon>
+    </button>
+    <input type="text" 
+        [ngModel]="cartItem.quantity"/>
+    <button (click)="changeQuantity('plus')">
+        <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+</div>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import { TranslocoModule } from '@ngneat/transloco';
+import { CartService } from '../../pages/cart/cart.service';
 
 @Component({
     selector: 'app-cart-btn',
@@ -19,11 +20,21 @@ import { TranslocoModule } from '@ngneat/transloco';
 export class CartBtnComponent {
     router = inject(Router);
     faCartShopping = faCartShopping;
+    nbCartItems: number = 0;
 
-    nbCartItems: number = 3;
+    constructor (private cartService: CartService) {}
 
     navigate(url: string) {
         this.router.navigate([url]);
-        console.log(this.router);
+    }
+
+    ngOnInit() {
+        this.nbCartItems = this.cartService.getNbCartItems();
+        //console.log('this.nbCartItems = '+this.nbCartItems);
+    }
+
+    ngDoCheck() {
+        this.nbCartItems = this.cartService.getNbCartItems();
+        //console.log(this.nbCartItems);
     }
 }

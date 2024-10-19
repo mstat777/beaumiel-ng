@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { NgIf, NgFor } from '@angular/common';
+import { NgIf, NgFor, CommonModule } from '@angular/common';
 import { TranslocoModule } from '@ngneat/transloco';
 import { CartItemComponent } from '../../containers/cart-item/cart-item.component';
-import { LocalService } from '../../services/local.service';
 import { CartItem } from '../../models/types';
+import { CartService } from './cart.service';
 
 @Component({
     selector: 'app-cart',
@@ -12,7 +12,8 @@ import { CartItem } from '../../models/types';
         TranslocoModule,
         CartItemComponent,
         NgIf,
-        NgFor
+        NgFor,
+        CommonModule
     ],
     templateUrl: './cart.component.html',
     styleUrl: './cart.component.scss'
@@ -20,15 +21,19 @@ import { CartItem } from '../../models/types';
 export class CartComponent {
     trPath = "pages.cart";
     cart!: CartItem[];
-    packagings!: [];
+    totalPrice!: number;
 
-    constructor(
-        private localService: LocalService
-    ){}
+    constructor(private cartService: CartService){}
 
     ngOnInit(){
-        const data = this.localService.getData('cart');
-        this.cart = data ? JSON.parse(data) : [];
+        this.cart = this.cartService.getCart();
         console.log(this.cart);
+        this.totalPrice = this.cartService.calculateTotalPrice(this.cart);
+    }
+
+    ngDoCheck() {
+        if(this.totalPrice) {
+            this.totalPrice = this.cartService.calculateTotalPrice(this.cart)
+        }
     }
 }

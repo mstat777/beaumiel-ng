@@ -6,11 +6,7 @@ import CryptoJS from 'crypto-js';
     providedIn: 'root'
 })
 export class LocalService {
-
     key = import.meta.env.NG_APP_SK;
-    //key='562';
-
-    constructor() { }
 
     public saveData(key: string, value: string){
         return localStorage.setItem(key, this.encrypt(value));

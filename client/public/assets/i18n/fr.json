@@ -15,7 +15,8 @@
             "seeProduct": "voir ce produit"
         },
         "cartItem": {
-            "size": "Pot de {{size}}g"
+            "size": "Pot de {{size}}g",
+            "price": "/pot"
         }
     },
     "pages": {
@@ -35,7 +36,10 @@
             "bigDiscount": "Profitez d'une remise de 10% sur le lot de 2 pots de 500g (prix déjà remisé)."
         },
         "cart": {
-            "title": "votre panier"
+            "title": "votre panier",
+            "emptyCart": "votre panier est vide",
+            "totalPrice": "total ttc :",
+            "taxNote": "Le prix de livraison de votre commande sera calculé lors du paiement."
         },
         "about": {
             "title": "à propos",
@@ -78,6 +82,11 @@
             "haveAccount": "J'ai déjà un compte.",
             "signinHere": "me connecter",
             "reqFields": "champs obligatoires"
+        },
+        "unauthorized": {
+            "title": "erreur 403 : accès interdit",
+            "text": "Vous n'avez pas le droit d'accéder à cette page. Retourner à",
+            "link": "l'acceuil"
         },
         "notFound": {
             "title": "erreur 404 : page non trouvée",

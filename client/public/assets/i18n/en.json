@@ -15,7 +15,8 @@
             "seeProduct": "see more"
         },
         "cartItem": {
-            "size": "{{size}}g Jar"
+            "size": "{{size}}g Jar",
+            "price": "/jar"
         }
     },
     "pages": {
@@ -35,7 +36,10 @@
             "bigDiscount": "Take advantage of 10% discount on the pack of 2 jars of 500g (already reduced price)."
         },
         "cart": {
-            "title": "your cart"
+            "title": "your cart",
+            "emptyCart": "your cart is empty",
+            "totalPrice": "estimated total:",
+            "taxNote": "Taxes, discounts and shipping calculated at checkout"
         },
         "about": {
             "title": "about",
@@ -78,6 +82,11 @@
             "haveAccount": "I already have an account.",
             "signinHere": "sign in here",
             "reqFields": "required fields"
+        },
+        "unauthorized": {
+            "title": "error 403: forbidden",
+            "text": "Sorry! You do not have permission to access this page. Return to",
+            "link": "home"
         },
         "notFound": {
             "title": "error 404: page not found",

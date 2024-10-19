@@ -6,8 +6,7 @@ import { TranslocoService } from '@ngneat/transloco';
 @Injectable({
     providedIn: 'root'
 })
-export class LocalStorageResolver implements Resolve<any> {
-
+export class LanguageResolver implements Resolve<any> {
     constructor(
         private localService: LocalService,
         private translocoService: TranslocoService
@@ -15,8 +14,6 @@ export class LocalStorageResolver implements Resolve<any> {
 
     detectLangChange(locStorageLang: string) {
         const tLocoLang = this.translocoService.getActiveLang();
-        //console.log('tLocoLang = ',tLocoLang);
-        //console.log('locStorageLang = ',locStorageLang);
         if (locStorageLang !== tLocoLang) {
             this.translocoService.setActiveLang(locStorageLang);
         }
@@ -24,7 +21,6 @@ export class LocalStorageResolver implements Resolve<any> {
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
         const data = this.localService.getData('lang');
-        //console.log(data);
         if (data) {
             this.detectLangChange(data);
             return data;

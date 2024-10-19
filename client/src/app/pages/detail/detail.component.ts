@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { NgIf, NgFor } from '@angular/common';
 import { LocalService } from '../../services/local.service';
+import { CartService } from '../cart/cart.service';
 
 @Component({
     selector: 'app-detail',
@@ -39,7 +40,8 @@ export class DetailComponent {
         private honeyService: HoneyService,
         private translocoService: TranslocoService,
         private route: ActivatedRoute,
-        private localService: LocalService
+        private localService: LocalService,
+        private cartService: CartService
     ) {}
 
     ngOnInit() {
@@ -65,15 +67,6 @@ export class DetailComponent {
     }
 
     addToCart() {
-        const data = this.localService.getData('cart');
-        console.log(data);
-        let cart: CartItem[];
-        if (data) {
-            cart = JSON.parse(data);
-        } else {
-            cart = [];
-            this.localService.saveData('cart', JSON.stringify(cart));
-        }
         let cartItem: CartItem = {
             name: this.honey.name,
             subtitle: this.honey.subtitle,
@@ -81,9 +74,6 @@ export class DetailComponent {
             quantity: 1,
             price: this.packagings[this.selectedPackIndex].price,
         };
-        console.log(cartItem);
-        cart.push(cartItem);
-        console.log(cart);
-        this.localService.saveData('cart', JSON.stringify(cart));
+        this.cartService.addToCart(cartItem); 
     }
 }

@@ -5,22 +5,22 @@
     <div class="info_div">
         <div class="titles_div">
             <h2>{{cartItem.name}}</h2>
-            <p class="subtitle_txt">{{cartItem.subtitle}}</p>
             <p class="package_txt">{{ t(trPath+'.size', { size: cartItem.size }) }}</p>
+            <p>{{cartItem.price}} € {{ t(trPath+'.price')}}</p>
         </div>
 
         <div class="quantity_price_div">
             <div class="quantity_delete_div">
-                <div class="counter">
-                    <button><fa-icon [icon]="faMinus"></fa-icon></button>
-                    <input type="text" ngModel=""/>
-                    <button><fa-icon [icon]="faPlus"></fa-icon></button>
-                </div>
+                <app-quantity-counter 
+                    [cartItem]="cartItem"
+                    [itemIndex]="itemIndex"></app-quantity-counter>
 
-                <button class="delete_btn"><fa-icon [icon]="faTrashCan"></fa-icon></button>
+                <button class="delete_btn" (click)="deleteCartItem()">
+                    <fa-icon [icon]="faTrashCan"></fa-icon>
+                </button>
             </div>
             
-            <span class="price">{{cartItem.price}} €</span>
+            <p class="price">{{cartItem.price}} €</p>
         </div>
     </div>
 </article>

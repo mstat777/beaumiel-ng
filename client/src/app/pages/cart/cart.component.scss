@@ -1,0 +1,19 @@
+@import '../../../variables.scss';
+
+.total {
+    margin-top: 4rem;
+    border-top: 2px solid $secondary-color;
+    text-align: left;
+    //background-color: $quaternary-color;
+
+    h2 {
+        font-size: 2rem;
+        >span {
+            color: black;
+        }
+    }
+
+    .tax_note{
+        font-size: 1.2rem;
+    }
+}
