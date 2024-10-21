@@ -26,3 +26,12 @@ export function queryWithArray(query: string, arr: any[]): Promise<any[]> {
         });
     });
 }
+
+export function queryWithObject(query: string, obj: Object): Promise<any> {
+    return new Promise((resolve, reject) => {
+        pool.query<any>(query, [...Object.values(obj)], (err, res) => {
+            if (err) reject(err)
+            else resolve(res);
+        });
+    });
+}

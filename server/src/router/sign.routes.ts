@@ -3,10 +3,11 @@ import { checkToken,
         userSignIn,
         createUserAccount } from '../controller/sign';
 import { validationRules, validateResult } from '../middlewares/validate';
+import { auth } from '../middlewares/auth';
         
 const router = Router();
 
-router.get("/check-token", checkToken);
+router.post("/check-token", auth, checkToken);
 
 router.post("/signin", 
             validationRules('signIn'),

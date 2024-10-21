@@ -20,3 +20,10 @@ export type CartItem = {
     quantity: number;
     price: number;
 }
+
+export type UserData = {
+    msg: string;
+    userId: number;
+    email: string;
+    role: string;
+}

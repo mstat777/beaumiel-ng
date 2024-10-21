@@ -77,20 +77,14 @@ export class SigninComponent {
             this.signService.signin(this.signinForm.value).subscribe({
                 next: () => {
                     const userData = this.localService.getData('authUser');
-                    console.log(userData);
                     const userDataParsed = JSON.parse(userData);
-                    console.log(userDataParsed);
-                    const role = 'admin';
-                    console.log(role);
-
-                    if(this.signService.isLoggedIn()){
-                        role === 'admin' ?
-                            this.router.navigate(['/admin']) : this.router.navigate(['/honey']) ;
-                    }
+                    const {role} = userDataParsed;
+                    role === 'admin' ?
+                        this.router.navigate(['/admin']) : this.router.navigate(['/honey']) ;
                 }, 
                 error: err => {
                     if (err.error[0].msg) {
-                        this.errMsg = `Erreur: ${err.error[0].msg}`;
+                        this.errMsg = `Error: ${err.error[0].msg}`;
                     } else {
                         console.log(err);
                     }

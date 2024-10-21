@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { body, validationResult } from 'express-validator';
 
-export const validationRules: any = (method: string) =>  {
+export const validationRules: any = (method: string) => {
     switch (method) {
         case 'createUser': {
             return [

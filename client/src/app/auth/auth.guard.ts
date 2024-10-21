@@ -1,35 +1,54 @@
 import { CanActivateFn, Router, Route } from '@angular/router';
 import { inject } from '@angular/core';
+import { LocalService } from '../services/local.service';
+import { SignService } from '../pages/sign/sign.service';
+import { UserData } from '../models/types';
 
 export const authGuard: CanActivateFn = (route, state) => {
     const router = inject(Router);
+    const localService = new LocalService();
+    const signService = new SignService(localService);
 
-    // provides the route configuration options.
-    const { routeConfig } = route; 
-    // provides the path of the route.
-    const { path } = routeConfig as Route; 
+    const { routeConfig } = route; // provides the route configuration options
+    const { path } = routeConfig as Route; // provides route's path
 
-    //let role: string = '';
-    const userData = localStorage.getItem('authUser'); 
-    console.log(userData);
+    const authUser = localService.getData('authUser'); 
 
-    // if user is logged in
-    if (userData) {
-        const { role } = JSON.parse(userData);
-        console.log(role);
+    // if user is logged in (a token exists)
+    if (authUser) {
+        const { TOKEN } = JSON.parse(authUser);
 
-        // if user is administrator and is trying to access admin routes, allow access.
-        if (path?.includes('admin') && role === 'admin') {
-            return true;
-        }
+        // verify token on server:
+        signService.checkToken(TOKEN)
+        .subscribe({
+                next: (res) => {
+                    const userData: UserData = res as UserData;
+                    const { msg, role } = userData;
 
-        // if user is a client and is accessing client (user) route, allow access.
-        if (path?.includes('user') && role === 'client') {
-              return true;
-        }
+                    if(msg === "authentified"){
+                        // if user is administrator and is trying to access admin routes, allow access:
+                        if (path?.includes('admin') && role === 'admin') {
+                            return true;
+                        }
+
+                        // if user is a client and is accessing client (user) route, allow access.
+                        if (path?.includes('user') && role === 'client') {
+                            return true;
+                        }
+
+                        console.log("User is trying to access unathorized content!");
+                        return false;
+                    }
+                    console.log("User is not authentified!");
+                    return false;
+                }, 
+                error: err => console.log(err)
+        });
+    } else {
+        console.log("Authentification token is missing or corrupted!");
     }
 
     // for any other condition, navigate to the forbidden route:
-    router.navigate(['/forbidden'])
+    router.navigate(['/forbidden']);
     return false;
 };

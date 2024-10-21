@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { queryWithValue, queryWithArray } from "../model/query";
+import { queryWithValue, queryWithArray, queryWithObject } from "../model/query";
 import { compare, hash } from "bcrypt";
 import jsonwebtoken from "jsonwebtoken";
 import dotenv from 'dotenv'; 
@@ -11,17 +11,19 @@ const { SK } = process.env;
 export const checkToken = async (req: Request, res: Response): Promise<any> => {
     try {
         const query = "SELECT id, email, role FROM users WHERE email = ? AND role = ?";
-        await queryWithValue(query, req.params).then((user) => {
+        await queryWithObject(query, req.params).then((user) => {
             return res.status(200).json({ 
-                msg: "authentifié",
-                userID: user[0].id,
+                msg: "authentified",
+                userId: user[0].id,
                 email: user[0].email, 
-                accountType: user[0].role});
+                role: user[0].role
+            });
         }).catch((err) => {
-            return res.status(500).json([{msg: err.message,err}]);
+            return res.status(500).json([{msg: err.message, err}]);
         });
     } catch (err) {
-        return res.status(500).json({err});
+        res.status(500).json({err});
+        return;
     }
 }
 
@@ -35,15 +37,10 @@ export const userSignIn = async (req: Request, res: Response): Promise<any> => {
             const same = await compare(req.body.password, user[0].password);
             if (same) {
                 const TOKEN = sign(
-                    {
-                        email: user[0].email, 
-                        role: user[0].role}, 
+                    {email: user[0].email, 
+                     role: user[0].role}, 
                     SK as string);
-                res.status(200).json({ 
-                    TOKEN, 
-                    email: user[0].email, 
-                    userID: user[0].id, 
-                    role: user[0].role });
+                res.status(200).json({ TOKEN });
             } else {
                 msg = "Mot de passe erroné";
                 return res.status(409).json([{ msg }]);
