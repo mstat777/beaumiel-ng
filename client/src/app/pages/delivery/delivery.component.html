@@ -1,1 +1,24 @@
-<p>delivery works!</p>
+<ng-container *transloco="let t">
+    <section class="delivery_section">
+        <h1>{{ t(trPath+'.title') }}</h1>
+
+        <form>
+            <fieldset>
+                <h2>{{ t(trPath+'.address.formTitle') }}</h2>
+
+                <div>
+                    <label>{{ t(trPath+'.address.firstName') }}</label>
+                    <input />
+                </div>
+
+
+            </fieldset>
+
+            <fieldset>
+                <h2>{{ t(trPath+'.methods') }}</h2>
+
+            </fieldset>
+        </form>
+
+    </section>
+</ng-container>

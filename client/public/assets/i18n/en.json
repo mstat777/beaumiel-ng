@@ -2,12 +2,14 @@
     "title": "Beaumiel",
     "containers": {
         "header": {
+            "userLink": "my profile",
             "homeLink": "home",
             "honeyLink": "honey",
             "aboutLink": "about",
             "contactLink": "contact",
             "testLink": "test",
-            "signinLink": "sign in"
+            "signinLink": "sign in",
+            "signoutLink": "sign out"
         },
         "cartBtnTitle": "cart",
         "productCard": {
@@ -40,6 +42,25 @@
             "emptyCart": "your cart is empty",
             "totalPrice": "estimated total:",
             "taxNote": "Taxes, discounts and shipping calculated at checkout"
+        },
+        "delivery": {
+            "title": "delivery",
+            "address": {
+                "formTitle": "delivery addresse",
+                "firstName": "first name",
+                "lastName": "last name",
+                "company": "Company (optional)",
+                "address": "address",
+                "addressComplement": "Apartment, suite, etc. (optional)",
+                "postalCode": "postcode",
+                "city": "city",
+                "country": "country",
+                "phone": "phone"
+            },
+            "methods": {
+                "formTitle": "Modes de livraison"
+            },
+            "goPayment": "procéder au paiement"
         },
         "about": {
             "title": "about",

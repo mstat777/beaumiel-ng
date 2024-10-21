@@ -22,11 +22,17 @@
             <ul (click)="hideNav()" 
                 class="nav_inner"
                 [ngClass]="navDisplay ? 'show_nav' : null">
+
+                <li *ngIf="isLogged()"><a routerLink="/user"  class="my_profile_a">{{ t('containers.header.userLink') }}</a></li>
+
                 <li><a routerLink="/honey">{{ t('containers.header.honeyLink') }}</a></li>
                 <li><a routerLink="/about">{{ t('containers.header.aboutLink') }}</a></li>
                 <li><a routerLink="/contact">{{ t('containers.header.contactLink') }}</a></li>
                 <li><a routerLink="/test">{{ t('containers.header.testLink') }}</a></li>
-                <li><a routerLink="/signin">{{ t('containers.header.signinLink') }}</a></li>
+
+                <li *ngIf="!isLogged()"><a routerLink="/signin" class="signin_a">{{ t('containers.header.signinLink') }}</a></li>
+                <li *ngIf="isLogged()"><button (click)="signout()" class="signout_btn">{{ t('containers.header.signoutLink') }}</button></li>
+
             </ul>
         </nav>
     </header>

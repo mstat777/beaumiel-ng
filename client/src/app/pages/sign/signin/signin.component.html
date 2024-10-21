@@ -8,16 +8,14 @@
         <label> 
             <fa-icon [icon]="faEnvelope" class="input_icon"></fa-icon>
             <input type="email" 
-                    name="email" 
                     placeholder="{{ t(trPath+'.form.emailPlaceholder') }}"
                     formControlName="email"
-                    (focus)="clearMessages();"/>
+                    (focus)="clearMessages()"/>
         </label>
 
         <label> 
             <fa-icon [icon]="faLock" class="input_icon"></fa-icon>
             <input type={{passInputType}}
-                    name="password" 
                     placeholder="{{ t(trPath+'.form.pswdPlaceholder') }}"
                     formControlName="password"
                     (focus)="clearMessages()"/>

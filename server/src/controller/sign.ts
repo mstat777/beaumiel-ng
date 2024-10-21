@@ -13,7 +13,7 @@ export const checkToken = async (req: Request, res: Response): Promise<any> => {
         const query = "SELECT id, email, role FROM users WHERE email = ? AND role = ?";
         await queryWithObject(query, req.params).then((user) => {
             return res.status(200).json({ 
-                msg: "authentified",
+                msg: "authenticated",
                 userId: user[0].id,
                 email: user[0].email, 
                 role: user[0].role

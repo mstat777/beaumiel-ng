@@ -43,18 +43,16 @@
                 (ngSubmit)="onSubmit()">
                   
                 <input type="text" 
-                    id="name" 
                     formControlName="name"
                     placeholder="{{ t(trPath+'.form.namePlaceholder') }}"
                     (focus)="isSubmitted = false"/> 
     
                 <input type="email" 
-                    id="email" 
                     formControlName="email"
                     placeholder="{{ t(trPath+'.form.emailPlaceholder') }}"
                     (focus)="isSubmitted = false"/> 
     
-                <textarea id="message"
+                <textarea 
                     formControlName="message"
                     placeholder="{{ t(trPath+'.form.messagePlaceholder') }}"
                     rows="8"

@@ -12,6 +12,7 @@ import { DeliveryComponent } from './pages/delivery/delivery.component';
 import { SigninComponent } from './pages/sign/signin/signin.component';
 import { SignupComponent } from './pages/sign/signup/signup.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-dashboard.component';
 import { UnauthorizedComponent } from './pages/unauthorized/unauthorized.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -50,6 +51,10 @@ export const routes: Routes = [
                 component: SignupComponent },
 
             // user & admin pages
+            { path: 'user', 
+                component: UserDashboardComponent,
+                canActivate: [authGuard] },
+
             { path: 'admin', 
                 component: AdminDashboardComponent,
                 canActivate: [authGuard] },

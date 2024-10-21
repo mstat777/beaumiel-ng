@@ -8,37 +8,33 @@
             <label> 
                 <fa-icon [icon]="faUserReg" class="input_icon"></fa-icon>
                 <input type="text" 
-                        name="firstName" 
                         placeholder="{{ t(trPath+'.form.firstNamePlaceholder') }}"
                         formControlName="firstName"
-                        (focus)="isSubmitted = false"/>
+                        (focus)="clearMessages()"/>
             </label>
 
             <label> 
                 <fa-icon [icon]="faUserSolid" class="input_icon"></fa-icon>
                 <input type="text" 
-                        name="lastName" 
                         placeholder="{{ t(trPath+'.form.lastNamePlaceholder') }}"
                         formControlName="lastName"
-                        (focus)="isSubmitted = false"/>
+                        (focus)="clearMessages()"/>
             </label>
     
             <label> 
                 <fa-icon [icon]="faEnvelope" class="input_icon"></fa-icon>
                 <input type="email" 
-                        name="email" 
                         placeholder="{{ t(trPath+'.form.emailPlaceholder') }}"
                         formControlName="email"
-                        (focus)="isSubmitted = false"/>
+                        (focus)="clearMessages()"/>
             </label>
     
             <label> 
                 <fa-icon [icon]="faLock" class="input_icon"></fa-icon>
                 <input type={{passInputType}}
-                        name="password" 
                         placeholder="{{ t(trPath+'.form.pswdPlaceholder') }}"
                         formControlName="password"
-                        (focus)="isSubmitted = false"/>
+                        (focus)="clearMessages()"/>
     
                 <button type="button"
                         class="pass_icon_ctn" 

@@ -2,12 +2,14 @@
     "title": "Beaumiel",
     "containers": {
         "header": {
+            "userLink": "mon profil",
             "homeLink": "accueil",
             "honeyLink": "miel",
             "aboutLink": "à propos",
             "contactLink": "contact",
             "testLink": "test",
-            "signinLink": "se connecter"
+            "signinLink": "se connecter",
+            "signoutLink": "se déconnecter"
         },
         "cartBtnTitle": "panier",
         "productCard": {
@@ -40,6 +42,25 @@
             "emptyCart": "votre panier est vide",
             "totalPrice": "total ttc :",
             "taxNote": "Le prix de livraison de votre commande sera calculé lors du paiement."
+        },
+        "delivery": {
+            "title": "livraison",
+            "address": {
+                "formTitle": "Adresse de livraison",
+                "firstName": "prénom",
+                "lastName": "nom",
+                "company": "Entreprise (optionnel)",
+                "address": "adresse",
+                "addressComplement": "lieu-dit (optionnel)",
+                "postalCode": "code postal",
+                "city": "ville",
+                "country": "pays",
+                "phone": "numéro de téléphone"
+            },
+            "methods": {
+                "formTitle": "Modes de livraison"
+            },
+            "goPayment": "procéder au paiement"
         },
         "about": {
             "title": "à propos",

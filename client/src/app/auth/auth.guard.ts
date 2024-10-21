@@ -25,30 +25,32 @@ export const authGuard: CanActivateFn = (route, state) => {
                     const userData: UserData = res as UserData;
                     const { msg, role } = userData;
 
-                    if(msg === "authentified"){
+                    if(msg === "authenticated"){
                         // if user is administrator and is trying to access admin routes, allow access:
-                        if (path?.includes('admin') && role === 'admin') {
+                        if (role === 'admin' && path?.includes('admin')) {
                             return true;
                         }
 
                         // if user is a client and is accessing client (user) route, allow access.
-                        if (path?.includes('user') && role === 'client') {
+                        console.log(`${path} et ${role}`);
+                        console.log(path?.includes('user') && (role === 'client' || role === 'admin'));
+                        
+                        if ((role === 'client' || role === 'admin') && path?.includes('user')) {
                             return true;
                         }
 
                         console.log("User is trying to access unathorized content!");
                         return false;
                     }
-                    console.log("User is not authentified!");
+                    console.log("User is not authenticated!");
                     return false;
                 }, 
                 error: err => console.log(err)
         });
-    } else {
-        console.log("Authentification token is missing or corrupted!");
     }
-
+    
     // for any other condition, navigate to the forbidden route:
+    console.log("Authentication token is missing or corrupted!");
     router.navigate(['/forbidden']);
     return false;
 };

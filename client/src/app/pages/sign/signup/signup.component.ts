@@ -71,6 +71,11 @@ export class SignupComponent {
             this.passInputType = 'password';
          }
     }
+
+    clearMessages(): void {
+        this.isSubmitted = false;
+        this.errMsg = '';
+    }
     
     onSubmit(): void {
         this.isSubmitted = true;

@@ -2,12 +2,14 @@
     "title": "Beaumiel",
     "containers": {
         "header": {
+            "userLink": "моят профил",
             "homeLink": "начало",
             "honeyLink": "пчелен мед",
             "aboutLink": "за нас",
             "contactLink": "контакт",
             "testLink": "тест",
-            "signinLink": "вход"
+            "signinLink": "вход",
+            "signoutLink": "изход"
         },
         "cartBtnTitle": "количка",
         "productCard": {
@@ -40,6 +42,25 @@
             "emptyCart": "твоята количка е празна",
             "totalPrice": "общо:",
             "taxNote": "Таксата за доставка ще бъде начислена при плащане"
+        },
+        "delivery": {
+            "title": "доставка",
+            "address": {
+                "formTitle": "Адрес за доставка",
+                "firstName": "име",
+                "lastName": "фамилия",
+                "company": "фирма (по желание)",
+                "address": "адрес",
+                "addressComplement": "допълнение към адреса (по желание)",
+                "postalCode": "пощенски код",
+                "city": "град",
+                "country": "държава",
+                "phone": "тел. номер"
+            },
+            "methods": {
+                "formTitle": "Методи за доставка"
+            },
+            "goPayment": "отиди на плащане"
         },
         "about": {
             "title": "за нас",

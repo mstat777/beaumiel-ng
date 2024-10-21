@@ -1,5 +1,13 @@
 @import '../../../variables.scss';
 
+@mixin special_nav_btn($color, $bkgrColor) {
+    padding: 1rem 0;
+    border: none;
+    font-weight: 600;
+    color: $color;
+    background-color: $bkgrColor;
+}
+
 .header {
     position: fixed;
     top: 0;
@@ -55,7 +63,7 @@
 
         &_inner {
             position: absolute;
-            top: -28rem; // hidden by default
+            top: -32rem; // hidden by default
             left: 0;
             right: 0;
             display: flex;
@@ -78,13 +86,15 @@
             }
             
             li {
-                a {
+                .signout_btn,
+                >a {
                     display: block;
                     margin: .2rem .4rem;
                     padding: .6rem 0;
-                    border: 4px solid $tertiary-color;
+                    border: .4rem solid $tertiary-color;
                     border-radius: .6rem;
                     font-family: $title-font;
+                    font-size: 1.6rem;
                     font-weight: 500;
                     color: $primary-color;
                     text-align: center;
@@ -105,11 +115,24 @@
                         color: $highlight-color;
                     }
                 }
+
+                .my_profile_a {
+                    @include special_nav_btn($secondary-color, $quaternary-color);
+                }
+
+                .signin_a {
+                    @include special_nav_btn($logo-color, $secondary-color);
+                }
+
+                .signout_btn {
+                    width: calc(100% - .8rem);
+                    @include special_nav_btn($logo-color, $secondary-color);
+                }
             }
         }
 
         .show_nav {
-            transform: translateY(28rem) translateY($header-height);
+            transform: translateY(32rem) translateY($header-height);
         }
     }
 }
