@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Honey, Packaging } from '../../models/types';
 import { HttpClient } from '@angular/common/http';
-import { TranslocoService } from '@ngneat/transloco';
+import { TranslocoService } from '@jsverse/transloco';
 import { Observable, catchError, of } from 'rxjs';
 
 @Injectable({

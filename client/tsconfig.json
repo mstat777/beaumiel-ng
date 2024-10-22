@@ -11,6 +11,7 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
+    "resolveJsonModule": true, // added for Transloco testing
     "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,

@@ -5,7 +5,7 @@ import { CartBtnComponent } from '../cart-btn/cart-btn.component';
 import { LanguageSelectorComponent } from '../language-selector/language-selector.component';
 import { NgClass, NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoModule } from '@jsverse/transloco';
 import { SignService } from '../../pages/sign/sign.service';
 
 @Component({

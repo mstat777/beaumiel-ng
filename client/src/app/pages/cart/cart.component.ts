@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgIf, NgFor, CommonModule } from '@angular/common';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoModule } from '@jsverse/transloco';
 import { CartItemComponent } from '../../containers/cart-item/cart-item.component';
 import { CartItem } from '../../models/types';
 import { CartService } from './cart.service';

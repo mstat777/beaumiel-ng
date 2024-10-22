@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TranslocoModule, TranslocoService } from '@ngneat/transloco';
+import { TranslocoModule, TranslocoService } from '@jsverse/transloco';
 import { ProductCardComponent } from '../../containers/product-card/product-card.component';
 import { Honey } from '../../models/types';
 import { NgFor, NgIf } from '@angular/common';

@@ -22,8 +22,13 @@ export type CartItem = {
 }
 
 export type UserData = {
-    msg: string;
+    status: string;
     userId: number;
     email: string;
+    role: string;
+}
+
+export type SigninData = {
+    token: string;
     role: string;
 }

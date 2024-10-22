@@ -13,13 +13,13 @@ export const checkToken = async (req: Request, res: Response): Promise<any> => {
         const query = "SELECT id, email, role FROM users WHERE email = ? AND role = ?";
         await queryWithObject(query, req.params).then((user) => {
             return res.status(200).json({ 
-                msg: "authenticated",
+                status: "authenticated",
                 userId: user[0].id,
                 email: user[0].email, 
                 role: user[0].role
             });
         }).catch((err) => {
-            return res.status(500).json([{msg: err.message, err}]);
+            return res.status(500).json([{err}]);
         });
     } catch (err) {
         res.status(500).json({err});
@@ -39,8 +39,12 @@ export const userSignIn = async (req: Request, res: Response): Promise<any> => {
                 const TOKEN = sign(
                     {email: user[0].email, 
                      role: user[0].role}, 
-                    SK as string);
-                res.status(200).json({ TOKEN });
+                    SK as string
+                );
+                res.status(200).json({ 
+                    token: TOKEN, 
+                    role: user[0].role 
+                });
             } else {
                 msg = "Mot de passe erroné";
                 return res.status(409).json([{ msg }]);

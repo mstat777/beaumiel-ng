@@ -5,8 +5,9 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { SignService } from '../sign.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoModule } from '@jsverse/transloco';
 import { LocalService } from '../../../services/local.service';
+import { SigninData } from '../../../models/types';
 
 @Component({
     selector: 'app-signin',
@@ -75,10 +76,10 @@ export class SigninComponent {
 
         if (this.signinForm.valid){
             this.signService.signin(this.signinForm.value).subscribe({
-                next: () => {
-                    const userData = this.localService.getData('authUser');
-                    const userDataParsed = JSON.parse(userData);
-                    const {role} = userDataParsed;
+                next: (result) => {
+                    const signinData: SigninData = result as SigninData;
+                    const { role } = signinData;
+                    console.log(role);
                     role === 'admin' ?
                         this.router.navigate(['/admin']) : this.router.navigate(['/honey']) ;
                 }, 

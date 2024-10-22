@@ -3,7 +3,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import { NgIf } from '@angular/common';
 import { CartItem } from '../../models/types';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoModule } from '@jsverse/transloco';
 import { QuantityCounterComponent } from '../quantity-counter/quantity-counter.component';
 import { CartService } from '../../pages/cart/cart.service';
 

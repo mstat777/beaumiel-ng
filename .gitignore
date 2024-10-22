@@ -1,6 +1,7 @@
 # Client
 /client/dist
 /client/node_modules
+/client/coverage
 /client/.vscode
 /client/.angular
 /client/.env
@@ -8,3 +9,6 @@
 # Server
 /server/node_modules
 /server/.env
+# Other
+*.css
+*.css.map
