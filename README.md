@@ -1,6 +1,4 @@
-# Project Name
-
-![Project Logo](https://beaumiel.mitkostatev.com/assets/images/logo.jpg)
+<img src="https://beaumiel.mitkostatev.com/models/screenshots/logo-with-text.png" width="124" height="40"/>
 
 ## Description
 
@@ -8,11 +6,11 @@ A multilingual e-commerce web application for a company that offers honey produc
 
 ## Table of Contents
 
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Libraries Used](#libraries-used)
-- [Usage](#usage)
-- [Contact](#contact)
+[Features](#features)
+[Technologies Used](#technologies-used)
+[Libraries Used](#libraries-used)
+[Usage](#usage)
+[Contact](#contact)
 
 ## Features
 
@@ -25,10 +23,10 @@ A multilingual e-commerce web application for a company that offers honey produc
 
 ## Technologies Used
 
-- **Language**: TypeScript, Sass, HTML
-- **Frameworks**: Angular, Express
-- **Database**: MySQL
-- **Other Tools**: Git, Postman, XAMPP, VSCode, Mocodo, Photoshop
+**Language**: TypeScript, Sass, HTML
+**Frameworks**: Angular, Express
+**Database**: MySQL
+**Other Tools**: Git, Postman, XAMPP, VSCode, Mocodo, Photoshop
 
 ## Libraries Used
 
@@ -51,24 +49,15 @@ A multilingual e-commerce web application for a company that offers honey produc
 
 ## Usage 
 
-Home
-![Home](https://beaumiel.mitkostatev.com/models/screenshots/home-mobile.png)
-
-Language selector component
-![Language selector](https://beaumiel.mitkostatev.com/models/screenshots/language-selector.png)
-
-Drop-down nav
-![Nav](https://beaumiel.mitkostatev.com/models/screenshots/nav-drop-down-mobile.png)
-
-Products
-![Products](https://beaumiel.mitkostatev.com/models/screenshots/honeys-mobile.png)
-
-Cart component
-![Cart](https://beaumiel.mitkostatev.com/models/screenshots/cart-mobile.png)
+<img src="https://beaumiel.mitkostatev.com/models/screenshots/home-mobile.png" width="180" height="370"/>
+<img src="https://beaumiel.mitkostatev.com/models/screenshots/language-selector.png" width="180" height="70" valign="top"/>
+<img src="https://beaumiel.mitkostatev.com/models/screenshots/nav-drop-down-mobile.png" width="180" height="172" valign="top"/>
+<img src="https://beaumiel.mitkostatev.com/models/screenshots/honeys-mobile.png" width="180" height="370"/>
+<img src="https://beaumiel.mitkostatev.com/models/screenshots/cart-mobile.png" width="180" height="370"/>
 
 ## Contact
 
-Dimitar Statev 
-statedv@gmail.com
-GitHub: https://github.com/mstat777
-LinkedIn: https://www.linkedin.com/in/dimitar-statev-34484068
+Dimitar Statev<br/>
+Email: &nbsp;  statedv@gmail.com<br/>
+GitHub: &nbsp;  https://github.com/mstat777<br/>
+LinkedIn: &nbsp;  https://www.linkedin.com/in/dimitar-statev-34484068
