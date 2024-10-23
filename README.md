@@ -6,10 +6,10 @@ A multilingual e-commerce web application for a company that offers honey produc
 
 ## Table of Contents
 
-[Features](#features)
-[Technologies Used](#technologies-used)
-[Libraries Used](#libraries-used)
-[Usage](#usage)
+[Features](#features)<br/>
+[Technologies Used](#technologies-used)<br/>
+[Libraries Used](#libraries-used)<br/>
+[Usage](#usage)<br/>
 [Contact](#contact)
 
 ## Features
@@ -23,9 +23,9 @@ A multilingual e-commerce web application for a company that offers honey produc
 
 ## Technologies Used
 
-**Language**: TypeScript, Sass, HTML
-**Frameworks**: Angular, Express
-**Database**: MySQL
+**Language**: TypeScript, Sass, HTML<br/>
+**Frameworks**: Angular, Express<br/>
+**Database**: MySQL<br/>
 **Other Tools**: Git, Postman, XAMPP, VSCode, Mocodo, Photoshop
 
 ## Libraries Used
