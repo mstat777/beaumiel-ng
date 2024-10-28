@@ -1,4 +1,6 @@
-<img src="https://beaumiel.mitkostatev.com/models/screenshots/logo-with-text.png" width="124" height="40"/>
+<img src="https://beaumiel.mitkostatev.com/models/screenshots/logo-with-text.png" width="124" height="40"/> 
+
+# Beaumiel
 
 ## Description
 
@@ -16,14 +18,15 @@ A multilingual e-commerce web application for a company that offers honey produc
 
 - SPA
 - multi-language
-- responsive layout (mobile first)
+- responsive design ("mobile first")
 - security
 - user rights management
+- user & admin dashboards *(work in progress...)*
 - web payment *(work in progress...)*
 
 ## Technologies Used
 
-**Language**: TypeScript, Sass, HTML<br/>
+**Languages**: TypeScript, Sass, HTML<br/>
 **Frameworks**: Angular, Express<br/>
 **Database**: MySQL<br/>
 **Other Tools**: Git, Postman, XAMPP, VSCode, Mocodo, Photoshop
@@ -49,15 +52,15 @@ A multilingual e-commerce web application for a company that offers honey produc
 
 ## Usage 
 
-<img src="https://beaumiel.mitkostatev.com/models/screenshots/home-mobile.png" width="180" height="370"/>
-<img src="https://beaumiel.mitkostatev.com/models/screenshots/language-selector.png" width="180" height="70" valign="top"/>
-<img src="https://beaumiel.mitkostatev.com/models/screenshots/nav-drop-down-mobile.png" width="180" height="172" valign="top"/>
-<img src="https://beaumiel.mitkostatev.com/models/screenshots/honeys-mobile.png" width="180" height="370"/>
-<img src="https://beaumiel.mitkostatev.com/models/screenshots/cart-mobile.png" width="180" height="370"/>
+<img src="https://beaumiel.mitkostatev.com/other/screenshots/beaumiel-mobile-home-mobile.png" width="180"/> &nbsp;
+<img src="https://beaumiel.mitkostatev.com/other/screenshots/beaumiel-mobile-honeys.png" width="180"/> &nbsp;
+<img src="https://beaumiel.mitkostatev.com/other/screenshots/beaumiel-mobile-cart.png" width="180"/> &nbsp;
+<img src="https://beaumiel.mitkostatev.com/other/screenshots/beaumiel-mobile-nav-drop-down.png" width="180" valign="top"/> &nbsp;
+<img src="https://beaumiel.mitkostatev.com/other/screenshots/beaumiel-mobile-language-selector.png" width="180" valign="top"/>
 
 ## Contact
 
 Dimitar Statev<br/>
-Email: &nbsp;  statedv@gmail.com<br/>
+Email: &nbsp;  statevd@gmail.com<br/>
 GitHub: &nbsp;  https://github.com/mstat777<br/>
-LinkedIn: &nbsp;  https://www.linkedin.com/in/dimitar-statev-34484068
+LinkedIn: &nbsp;  https://www.linkedin.com/in/dimitar-statev/
